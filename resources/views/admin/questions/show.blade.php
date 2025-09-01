@@ -118,7 +118,11 @@
                             </div>
                             <div class="bg-white rounded-xl p-6 shadow-sm border border-blue-100">
                                 <div class="prose prose-lg max-w-none">
+<<<<<<< HEAD
                                     <div class="mathjax-content text-gray-800 leading-relaxed text-lg">{!! $question->question !!}</div>
+=======
+                                    <div class="mathjax-content text-gray-800 leading-relaxed text-lg">{!! nl2br($question->question) !!}</div>
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
                                 </div>
                             </div>
                         </div>
@@ -157,7 +161,58 @@
                                 </div>
                             </div>
                             <div class="bg-white rounded-xl p-6 shadow-sm border border-orange-100">
+<<<<<<< HEAD
                                 <div class="mathjax-content text-gray-800 leading-relaxed text-lg space-y-3">{!! $question->options !!}</div>
+=======
+                                <div class="mathjax-content text-gray-800 leading-relaxed text-lg space-y-3">{!! nl2br($question->options) !!}</div>
+                                
+                                <!-- Option Images -->
+                                @if($question->options_images && is_array($question->options_images) && count($question->options_images) > 0)
+                                <div class="mt-6">
+                                    <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                                        <i class="fas fa-images text-orange-500 mr-2"></i>
+                                        Option Images
+                                    </h4>
+                                    
+                                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                                        @foreach($question->options_images as $index => $optionImage)
+                                            @if($optionImage && trim($optionImage) !== '')
+                                            <div class="bg-white rounded-xl p-4 border-2 border-orange-100 hover:border-orange-200 transition-all duration-300 shadow-sm hover:shadow-md">
+                                                <div class="text-center mb-3">
+                                                    <span class="inline-flex items-center justify-center w-8 h-8 bg-orange-500 text-white rounded-full text-sm font-bold">
+                                                        {{ chr(65 + intval($index)) }}
+                                                    </span>
+                                                    <div class="text-sm font-medium text-gray-700 mt-1">
+                                                        Option {{ chr(65 + intval($index)) }}
+                                                    </div>
+                                                </div>
+                                                <div class="rounded-lg overflow-hidden shadow-sm border border-gray-200 bg-gray-50">
+                                                    @if(file_exists(public_path('storage/' . $optionImage)))
+                                                        <img src="{{ asset('storage/' . $optionImage) }}" 
+                                                             alt="Option {{ chr(65 + intval($index)) }} Image" 
+                                                             class="w-full h-32 object-contain bg-white hover:scale-105 transition-transform duration-300">
+                                                    @else
+                                                        <div class="w-full h-32 bg-gray-100 flex items-center justify-center text-gray-500">
+                                                            <div class="text-center">
+                                                                <i class="fas fa-exclamation-triangle mb-2 text-orange-400"></i>
+                                                                <div class="text-xs">Image not found</div>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                    
+                                    <!-- Summary info -->
+                                    <div class="mt-4 flex items-center justify-center text-sm text-gray-600 bg-orange-50 p-3 rounded-lg">
+                                        <i class="fas fa-info-circle text-orange-500 mr-2"></i>
+                                        <span>{{ count(array_filter($question->options_images, function($img) { return $img && trim($img) !== ''; })) }} of 4 options have images</span>
+                                    </div>
+                                </div>
+                                @endif
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
                             </div>
                         </div>
 
@@ -173,7 +228,38 @@
                                 </div>
                             </div>
                             <div class="bg-white rounded-xl p-6 shadow-sm border border-emerald-100">
+<<<<<<< HEAD
                                 <div class="mathjax-content text-emerald-800 font-bold text-xl leading-relaxed">{!! $question->answer !!}</div>
+=======
+                                <div class="mathjax-content text-emerald-800 font-bold text-xl leading-relaxed">{!! nl2br($question->answer) !!}</div>
+                                
+                                <!-- Answer Image -->
+                                @if($question->answer_image && trim($question->answer_image) !== '')
+                                <div class="mt-6">
+                                    <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                                        <i class="fas fa-image text-emerald-500 mr-2"></i>
+                                        Answer Explanation Image
+                                    </h4>
+                                    <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-200">
+                                        <div class="rounded-lg overflow-hidden shadow-lg border border-gray-200">
+                                            @if(file_exists(public_path('storage/' . $question->answer_image)))
+                                                <img src="{{ asset('storage/' . $question->answer_image) }}" 
+                                                     alt="Answer Explanation Image" 
+                                                     class="w-full h-auto max-h-96 object-contain bg-white">
+                                            @else
+                                                <div class="w-full h-48 bg-gray-100 flex items-center justify-center text-gray-500">
+                                                    <div class="text-center">
+                                                        <i class="fas fa-exclamation-triangle mb-2"></i>
+                                                        <div class="text-sm">Answer image not found</div>
+                                                        <div class="text-xs">{{ $question->answer_image }}</div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
                             </div>
                         </div>
                     </div>

@@ -2,6 +2,7 @@
 
 @push('head')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<<<<<<< HEAD
 <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>
     .ck-content img {
@@ -23,6 +24,8 @@
         background: linear-gradient(to right, transparent, white);
     }
 </style>
+=======
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
 @endpush
 
 @section('content')
@@ -153,8 +156,13 @@
                                             <i class="fas fa-question text-blue-600"></i>
                                         </div>
                                         <div>
+<<<<<<< HEAD
                                             <div class="text-sm font-medium text-gray-900 leading-5 question-preview">
                                                 {!! Str::limit(strip_tags($question->question, '<b><i><strong><em>'), 100) !!}
+=======
+                                            <div class="text-sm font-medium text-gray-900 leading-5">
+                                                {{ Str::limit($question->question, 60) }}
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
                                             </div>
                                             <div class="text-sm text-gray-500 mt-1">
                                                 <i class="fas fa-building text-xs mr-1"></i>{{ $question->institution }}
@@ -286,6 +294,7 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -310,4 +319,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+=======
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
 @endsection

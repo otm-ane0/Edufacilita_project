@@ -88,7 +88,10 @@ Route::prefix('Dashboard')->name('admin.')->middleware([AuthMiddleware::class, A
 
     // Questions Management Routes
     Route::get('/questions/{question}/download-document', [QuestionsController::class, 'downloadDocument'])->name('questions.download-document');
+<<<<<<< HEAD
     Route::post('/upload/image', [QuestionsController::class, 'uploadImage'])->name('upload.image');
+=======
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
     Route::resource('questions', QuestionsController::class);
 
 

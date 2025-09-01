@@ -11,7 +11,14 @@ class Question extends Model
         'question',
         'image',
         'options',
+<<<<<<< HEAD
         'answer',
+=======
+        'options_images',
+        'text_options',
+        'answer',
+        'answer_image',
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
         'difficulty',
         'question_type',
         'education_level',
@@ -25,6 +32,14 @@ class Question extends Model
         'answer_doc',
     ];
 
+<<<<<<< HEAD
+=======
+    protected $casts = [
+        'options_images' => 'array',
+        'text_options' => 'array',
+    ];
+
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
     public function topic(){
         return $this->belongsTo(Topic::class);
     }

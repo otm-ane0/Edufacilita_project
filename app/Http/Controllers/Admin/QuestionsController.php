@@ -41,7 +41,16 @@ class QuestionsController extends Controller
             'question' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'options' => 'required|string',
+<<<<<<< HEAD
             'answer' => 'required|string',
+=======
+            'option_images' => 'nullable|array',
+            'option_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'text_options' => 'nullable|array',
+            'text_options.*' => 'nullable|string',
+            'answer' => 'required|string',
+            'answer_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
             'difficulty' => ['required', Rule::in(['easy', 'medium', 'hard'])],
             'question_type' => ['required', Rule::in(['Multiple Choice', 'True/False', 'Open Ended', 'Fill in the Blank'])],
             'education_level' => ['required', Rule::in(['Elementary', 'Middle School', 'High School', 'University'])],
@@ -55,12 +64,51 @@ class QuestionsController extends Controller
             'answer_doc' => 'required|file|mimes:doc,docx|max:10240', // 10MB max for answer documents
         ]);
 
+<<<<<<< HEAD
         // Handle image upload (stored in public storage)
+=======
+        // Handle main image upload (stored in public storage)
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
         $imagePath = null;
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('questions/images', 'public');
         }
 
+<<<<<<< HEAD
+=======
+        // Handle option images upload
+        $optionImagePaths = [];
+        if ($request->hasFile('option_images')) {
+            foreach ($request->file('option_images') as $index => $optionImage) {
+                if ($optionImage && $optionImage->isValid()) {
+                    $optionImagePaths[$index] = $optionImage->store('questions/option_images', 'public');
+                } else {
+                    $optionImagePaths[$index] = null;
+                }
+            }
+            // Remove null values but keep the indexing intact for the options that do have images
+            $optionImagePaths = array_filter($optionImagePaths, function($value) {
+                return $value !== null;
+            });
+        }
+
+        // Handle text options processing
+        $textOptions = [];
+        if ($request->has('text_options')) {
+            foreach ($request->input('text_options') as $index => $textOption) {
+                if ($textOption && trim($textOption) !== '') {
+                    $textOptions[$index] = trim($textOption);
+                }
+            }
+        }
+
+        // Handle answer image upload
+        $answerImagePath = null;
+        if ($request->hasFile('answer_image')) {
+            $answerImagePath = $request->file('answer_image')->store('questions/answer_images', 'public');
+        }
+
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
         // Handle document upload (stored in private storage for security) - Document is required
         $docPath = $request->file('doc')->store('questions/documents', 'local');
 
@@ -72,7 +120,14 @@ class QuestionsController extends Controller
             'question' => $validated['question'],
             'image' => $imagePath,
             'options' => $validated['options'],
+<<<<<<< HEAD
             'answer' => $validated['answer'],
+=======
+            'options_images' => !empty($optionImagePaths) ? $optionImagePaths : null,
+            'text_options' => !empty($textOptions) ? $textOptions : null,
+            'answer' => $validated['answer'],
+            'answer_image' => $answerImagePath,
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
             'difficulty' => $validated['difficulty'],
             'question_type' => $validated['question_type'],
             'education_level' => $validated['education_level'],
@@ -124,7 +179,16 @@ class QuestionsController extends Controller
             'question' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'options' => 'required|string',
+<<<<<<< HEAD
             'answer' => 'required|string',
+=======
+            'option_images' => 'nullable|array',
+            'option_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'text_options' => 'nullable|array',
+            'text_options.*' => 'nullable|string',
+            'answer' => 'required|string',
+            'answer_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
             'difficulty' => ['required', Rule::in(['easy', 'medium', 'hard'])],
             'question_type' => ['required', Rule::in(['Multiple Choice', 'True/False', 'Open Ended', 'Fill in the Blank'])],
             'education_level' => ['required', Rule::in(['Elementary', 'Middle School', 'High School', 'University'])],
@@ -138,7 +202,11 @@ class QuestionsController extends Controller
             'answer_doc' => 'nullable|file|mimes:doc,docx|max:10240', // Optional on update
         ]);
 
+<<<<<<< HEAD
         // Handle image upload
+=======
+        // Handle main image upload
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
         $imagePath = $question->image;
         if ($request->hasFile('image')) {
             // Delete old image if exists
@@ -148,6 +216,56 @@ class QuestionsController extends Controller
             $imagePath = $request->file('image')->store('questions/images', 'public');
         }
 
+<<<<<<< HEAD
+=======
+        // Handle option images upload
+        $optionImagePaths = $question->options_images ?? [];
+        if ($request->hasFile('option_images')) {
+            // Delete old option images if they exist
+            if ($question->options_images) {
+                foreach ($question->options_images as $oldOptionImage) {
+                    if ($oldOptionImage) {
+                        Storage::disk('public')->delete($oldOptionImage);
+                    }
+                }
+            }
+            
+            $optionImagePaths = [];
+            foreach ($request->file('option_images') as $index => $optionImage) {
+                if ($optionImage && $optionImage->isValid()) {
+                    $optionImagePaths[$index] = $optionImage->store('questions/option_images', 'public');
+                } else {
+                    $optionImagePaths[$index] = null;
+                }
+            }
+            // Remove null values but keep the indexing intact for the options that do have images
+            $optionImagePaths = array_filter($optionImagePaths, function($value) {
+                return $value !== null;
+            });
+        }
+
+        // Handle text options processing
+        $textOptions = $question->text_options ?? [];
+        if ($request->has('text_options')) {
+            $textOptions = [];
+            foreach ($request->input('text_options') as $index => $textOption) {
+                if ($textOption && trim($textOption) !== '') {
+                    $textOptions[$index] = trim($textOption);
+                }
+            }
+        }
+
+        // Handle answer image upload
+        $answerImagePath = $question->answer_image;
+        if ($request->hasFile('answer_image')) {
+            // Delete old answer image if exists
+            if ($question->answer_image) {
+                Storage::disk('public')->delete($question->answer_image);
+            }
+            $answerImagePath = $request->file('answer_image')->store('questions/answer_images', 'public');
+        }
+
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
         // Handle document upload
         $docPath = $question->doc;
         if ($request->hasFile('doc')) {
@@ -183,7 +301,14 @@ class QuestionsController extends Controller
             'question' => $validated['question'],
             'image' => $imagePath,
             'options' => $validated['options'],
+<<<<<<< HEAD
             'answer' => $validated['answer'],
+=======
+            'options_images' => !empty($optionImagePaths) ? $optionImagePaths : null,
+            'text_options' => !empty($textOptions) ? $textOptions : null,
+            'answer' => $validated['answer'],
+            'answer_image' => $answerImagePath,
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
             'difficulty' => $validated['difficulty'],
             'question_type' => $validated['question_type'],
             'education_level' => $validated['education_level'],
@@ -212,6 +337,23 @@ class QuestionsController extends Controller
             Storage::disk('public')->delete($question->image);
         }
 
+<<<<<<< HEAD
+=======
+        // Delete option images
+        if ($question->options_images) {
+            foreach ($question->options_images as $optionImage) {
+                if ($optionImage) {
+                    Storage::disk('public')->delete($optionImage);
+                }
+            }
+        }
+
+        // Delete answer image
+        if ($question->answer_image) {
+            Storage::disk('public')->delete($question->answer_image);
+        }
+
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
         if ($question->doc) {
             Storage::disk('local')->delete($question->doc);
         }
@@ -229,6 +371,7 @@ class QuestionsController extends Controller
     }
 
     /**
+<<<<<<< HEAD
      * Handle CKEditor image upload for rich text content
      */
     public function uploadImage(Request $request)
@@ -274,6 +417,8 @@ class QuestionsController extends Controller
     }
 
     /**
+=======
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
      * Download the question and answer documents as a ZIP file
      */
     public function downloadDocument(Question $question)
