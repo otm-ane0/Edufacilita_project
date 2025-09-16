@@ -1,0 +1,429 @@
+@extends('layouts.admin')
+
+@push('head')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+@endpush
+
+@section('content')
+<div class="p-6">
+    <!-- Progress Bar -->
+    <div class="mb-6">
+        <div class="h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-80"></div>
+    </div>
+
+    <!-- Dashboard Header -->
+    <div class="mb-8">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+        <div class="space-y-2">
+            <div class="flex items-center space-x-3">
+                <div class="p-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg">
+                    <i class="fas fa-chart-line text-white text-xl"></i>
+                </div>
+                <h1 class="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent">
+                    Admin Dashboard
+                </h1>
+            </div>
+            <p class="text-gray-600 text-lg font-medium ml-16">Real-time overview of platform performance</p>
+        </div>
+        <div class="flex items-center space-x-4">
+            <div class="hidden lg:flex items-center space-x-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-200">
+                <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span class="text-sm font-medium text-gray-600">System Online</span>
+            </div>
+            <div class="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full shadow-sm text-white">
+                <i class="fas fa-users text-sm"></i>
+                <span class="text-sm font-medium">Active: {{ $activeUsers }}</span>
+            </div>
+            <div class="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full shadow-sm text-white">
+                <i class="fas fa-clock text-sm"></i>
+                <span class="text-sm font-medium" id="currentTime">{{ now()->format('H:i') }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Enhanced Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-6">
+    <!-- Total Users -->
+    <a href="{{ route('admin.users.index') }}" class="group bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                    <i class="fas fa-users text-white text-lg"></i>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-gray-600 uppercase tracking-wide">Total Users</p>
+                    <p class="text-2xl font-black text-gray-900">{{ $totalUsers }}</p>
+                    @if(!is_null($userGrowthPercent))
+                    <div class="flex items-center space-x-1 mt-1">
+                        <i class="fas fa-arrow-{{ $userGrowthPercent >= 0 ? 'up text-green-500' : 'down text-red-500' }} text-xs"></i>
+                        <span class="text-xs font-semibold {{ $userGrowthPercent >= 0 ? 'text-green-600' : 'text-red-600' }}">{{ $userGrowthPercent >= 0 ? '+' : ''}}{{ $userGrowthPercent }}%</span>
+                        <span class="text-xs text-gray-500">vs last month</span>
+                    </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <!-- Total Questions -->
+    <a href="{{ route('admin.questions.index') }}" class="group bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                    <i class="fas fa-question-circle text-white text-lg"></i>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-gray-600 uppercase tracking-wide">Total Questions</p>
+                    <p class="text-2xl font-black text-gray-900">{{ $totalQuestions }}</p>
+                    <div class="flex items-center space-x-1 mt-1">
+                        <i class="fas fa-database text-blue-500 text-xs"></i>
+                        <span class="text-xs font-semibold text-blue-600">Easy {{ $easyCount }}</span>
+                        <span class="text-xs text-gray-400">/</span>
+                        <span class="text-xs font-semibold text-yellow-600">Med {{ $mediumCount }}</span>
+                        <span class="text-xs text-gray-400">/</span>
+                        <span class="text-xs font-semibold text-red-600">Hard {{ $hardCount }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <!-- Active Sessions approximation -->
+    <div class="group bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                    <i class="fas fa-bolt text-white text-lg"></i>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-gray-600 uppercase tracking-wide">Active Users (15m)</p>
+                    <p class="text-2xl font-black text-gray-900">{{ $activeUsers }}</p>
+                    <div class="flex items-center space-x-1 mt-1">
+                        <i class="fas fa-user-clock text-indigo-500 text-xs"></i>
+                        <span class="text-xs font-semibold text-indigo-600">live snapshot</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Total Revenue -->
+    <div class="group bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                    <i class="fas fa-dollar-sign text-white text-lg"></i>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-gray-600 uppercase tracking-wide">Total Revenue</p>
+                    <p class="text-2xl font-black text-gray-900">${{ number_format($totalRevenue, 2) }}</p>
+                    @if(!is_null($revenueGrowthPercent))
+                    <div class="flex items-center space-x-1 mt-1">
+                        <i class="fas fa-arrow-{{ $revenueGrowthPercent >= 0 ? 'up text-green-500' : 'down text-red-500' }} text-xs"></i>
+                        <span class="text-xs font-semibold {{ $revenueGrowthPercent >= 0 ? 'text-green-600' : 'text-red-600' }}">{{ $revenueGrowthPercent >= 0 ? '+' : ''}}{{ $revenueGrowthPercent }}%</span>
+                        <span class="text-xs text-gray-500">vs last month</span>
+                    </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Secondary Stats Row -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
+    <!-- Questions by Difficulty -->
+    <div class="bg-white rounded-xl shadow-md p-3 border border-gray-100">
+        <div class="text-center">
+            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <i class="fas fa-signal text-green-600 text-sm"></i>
+            </div>
+            <p class="text-xs font-semibold text-gray-600 uppercase">Easy</p>
+            <p class="text-lg font-black text-gray-900">{{ $easyCount }}</p>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-md p-3 border border-gray-100">
+        <div class="text-center">
+            <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <i class="fas fa-signal text-yellow-600 text-sm"></i>
+            </div>
+            <p class="text-xs font-semibold text-gray-600 uppercase">Medium</p>
+            <p class="text-lg font-black text-gray-900">{{ $mediumCount }}</p>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-md p-3 border border-gray-100">
+        <div class="text-center">
+            <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <i class="fas fa-signal text-red-600 text-sm"></i>
+            </div>
+            <p class="text-xs font-semibold text-gray-600 uppercase">Hard</p>
+            <p class="text-lg font-black text-gray-900">{{ $hardCount }}</p>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-md p-3 border border-gray-100">
+        <div class="text-center">
+            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <i class="fas fa-graduation-cap text-blue-600 text-sm"></i>
+            </div>
+            <p class="text-xs font-semibold text-gray-600 uppercase">Institutions</p>
+            <p class="text-lg font-black text-gray-900">{{ $institutionsCount }}</p>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-md p-3 border border-gray-100">
+        <div class="text-center">
+            <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <i class="fas fa-map-marker-alt text-purple-600 text-sm"></i>
+            </div>
+            <p class="text-xs font-semibold text-gray-600 uppercase">Regions</p>
+            <p class="text-lg font-black text-gray-900">{{ $regionsCount }}</p>
+        </div>
+    </div>
+
+    <a href="{{ route('admin.questions.create') }}" class="bg-white rounded-xl shadow-md p-3 border border-gray-100 hover:shadow-lg transition">
+        <div class="text-center">
+            <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <i class="fas fa-plus text-indigo-600 text-sm"></i>
+            </div>
+            <p class="text-xs font-semibold text-gray-600 uppercase">New Question</p>
+            <p class="text-lg font-black text-gray-900">Add</p>
+        </div>
+    </a>
+</div>
+
+    <!-- Main Content Grid -->
+    <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-6">
+    <!-- User Growth Chart -->
+    <div class="xl:col-span-2 bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+        <div class="flex items-center justify-between mb-4">
+            <div>
+                <h3 class="text-lg font-bold text-gray-900">User Growth Analytics</h3>
+                <p class="text-gray-600 text-sm">Monthly user registration trends (last 6 months)</p>
+            </div>
+            <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                <span class="text-sm text-gray-600">Registrations</span>
+            </div>
+        </div>
+        <div class="h-64">
+            <canvas id="userGrowthChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Question Statistics -->
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+        <div class="flex items-center justify-between mb-4">
+            <div>
+                <h3 class="text-lg font-bold text-gray-900">Question Distribution</h3>
+                <p class="text-gray-600 text-sm">By difficulty level</p>
+            </div>
+        </div>
+        <div class="h-64">
+            <canvas id="questionDistChart"></canvas>
+        </div>
+    </div>    </div>
+
+    <!-- Content Management and Activity -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <!-- Recent Questions -->
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+        <div class="flex items-center justify-between mb-4">
+            <div>
+                <h3 class="text-lg font-bold text-gray-900">Recent Questions</h3>
+                <p class="text-gray-600 text-sm">Latest 5 questions added</p>
+            </div>
+            <a href="{{ route('admin.questions.index') }}" class="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center space-x-1">
+                <span>View All</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="space-y-3">
+            @forelse($recentQuestions as $question)
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-question text-white text-xs"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-900 text-sm">{{ Str::limit($question->question, 40) }}</p>
+                        <div class="flex items-center space-x-2 mt-1">
+                            <span class="px-2 py-1 bg-{{ $question->difficulty == 'easy' ? 'green' : ($question->difficulty == 'medium' ? 'yellow' : 'red') }}-100 text-{{ $question->difficulty == 'easy' ? 'green' : ($question->difficulty == 'medium' ? 'yellow' : 'red') }}-800 rounded-full text-xs font-semibold">
+                                {{ ucfirst($question->difficulty) }}
+                            </span>
+                            <span class="text-xs text-gray-500">{{ Str::limit($question->institution, 20) }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-xs text-gray-500">
+                    {{ $question->created_at->diffForHumans() }}
+                </div>
+            </div>
+            @empty
+            <div class="text-center py-6 text-gray-500">
+                <i class="fas fa-question-circle text-3xl mb-3"></i>
+                <p>No questions available</p>
+            </div>
+            @endforelse
+        </div>
+    </div>
+
+    <!-- System Information & Quick Actions -->
+    <div class="space-y-6">
+        <!-- System Info -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h3 class="text-lg font-bold text-gray-900">System Information</h3>
+                    <p class="text-gray-600 text-sm">Current system status and metrics</p>
+                </div>
+                <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+            </div>
+            <div class="space-y-3">
+                <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-server text-green-600"></i>
+                        <span class="font-semibold text-gray-900">Server Status</span>
+                    </div>
+                    <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">Online</span>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-database text-blue-600"></i>
+                        <span class="font-semibold text-gray-900">Database</span>
+                    </div>
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">Connected</span>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-memory text-purple-600"></i>
+                        <span class="font-semibold text-gray-900">Memory Usage</span>
+                    </div>
+                    <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold">67%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h3 class="text-lg font-bold text-gray-900">Quick Actions</h3>
+                    <p class="text-gray-600 text-sm">Frequently used admin functions</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 gap-3">
+                <a href="{{ route('admin.questions.create') }}" class="group flex items-center justify-center px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                    <i class="fas fa-plus mr-3 group-hover:rotate-180 transition-transform duration-300"></i>
+                    <span class="font-semibold">Add New Question</span>
+                </a>
+                <a href="{{ route('admin.questions.index') }}" class="group flex items-center justify-center px-4 py-3 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white rounded-xl hover:from-emerald-700 hover:to-emerald-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                    <i class="fas fa-list mr-3 group-hover:scale-110 transition-transform duration-300"></i>
+                    <span class="font-semibold">Manage Questions</span>
+                </a>
+                <a href="{{ route('admin.users.index') }}" class="group flex items-center justify-center px-4 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl hover:from-purple-700 hover:to-purple-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                    <i class="fas fa-users-cog mr-3 group-hover:scale-110 transition-transform duration-300"></i>
+                    <span class="font-semibold">Manage Users</span>
+                </a>
+                <a href="{{ route('admin.subjects.index') }}" class="group flex items-center justify-center px-4 py-3 bg-gradient-to-r from-orange-600 to-orange-700 text-white rounded-xl hover:from-orange-700 hover:to-orange-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                    <i class="fas fa-book mr-3 group-hover:rotate-180 transition-transform duration-300"></i>
+                    <span class="font-semibold">Manage Subjects</span>
+                </a>
+                <a href="{{ route('admin.topics.index') }}" class="group flex items-center justify-center px-4 py-3 bg-gradient-to-r from-pink-600 to-pink-700 text-white rounded-xl hover:from-pink-700 hover:to-pink-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                    <i class="fas fa-stream mr-3 group-hover:rotate-180 transition-transform duration-300"></i>
+                    <span class="font-semibold">Manage Topics</span>
+                </a>
+            </div>
+        </div>        </div>
+    </div>
+</div>
+@endsection
+
+<!-- Enhanced JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Update current time
+    function updateTime() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('en-US', {
+            hour12: false,
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        document.getElementById('currentTime').textContent = timeString;
+    }
+
+    updateTime();
+    setInterval(updateTime, 60000); // Update every minute
+
+    // User Growth Chart
+    const userGrowthCtx = document.getElementById('userGrowthChart').getContext('2d');
+    const userGrowthChart = new Chart(userGrowthCtx, {
+        type: 'line',
+        data: {
+            labels: @json($userGrowthLabels),
+            datasets: [{
+                label: 'New Users',
+                data: @json($userGrowthData),
+                borderColor: '#3B82F6',
+                backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4,
+                pointBackgroundColor: '#3B82F6',
+                pointBorderColor: '#ffffff',
+                pointBorderWidth: 2,
+                pointRadius: 6
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                    ticks: { color: '#6B7280' }
+                },
+                x: {
+                    grid: { display: false },
+                    ticks: { color: '#6B7280' }
+                }
+            },
+            elements: { point: { hoverRadius: 8 } }
+        }
+    });
+
+    // Question Distribution Chart
+    const questionDistCtx = document.getElementById('questionDistChart').getContext('2d');
+    const questionDistChart = new Chart(questionDistCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Easy', 'Medium', 'Hard'],
+            datasets: [{
+                data: [{{ $easyCount }}, {{ $mediumCount }}, {{ $hardCount }}],
+                backgroundColor: ['#10B981', '#F59E0B', '#EF4444'],
+                borderWidth: 0,
+                cutout: '60%'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: { padding: 20, usePointStyle: true, font: { weight: 'bold' } }
+                }
+            }
+        }
+    });
+});
+</script>
