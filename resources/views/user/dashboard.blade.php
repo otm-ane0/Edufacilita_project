@@ -6,15 +6,24 @@
 @endpush
 
 @section('content')
+<<<<<<< HEAD
 <div class="container mx-auto px-4 py-8">
     <div class="bg-white rounded-lg shadow-lg p-6">
+=======
+<div class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <div class="p-6">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
         <!-- Progress Bar -->
         <div class="mb-6">
             <div class="h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-80"></div>
         </div>
 
         <!-- Welcome Header -->
+<<<<<<< HEAD
         <div class="mb-8 bg-gradient-to-r from-white via-blue-50/30 to-indigo-50/30 rounded-2xl shadow-sm border border-gray-100 p-6">
+=======
+        <div class="mb-8 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/30 p-6">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
             <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
                 <div class="space-y-3">
                     <div class="flex items-center space-x-4">
@@ -46,7 +55,11 @@
         <!-- Essential Stats -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <!-- Available Credits -->
+<<<<<<< HEAD
             <div class="group bg-gradient-to-br from-emerald-50 via-emerald-100 to-emerald-200 rounded-2xl border border-emerald-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-6">
+=======
+            <div class="group bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-white/40 p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                 <div class="flex items-center space-x-4">
                     <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
                         <i class="fas fa-coins text-white text-lg"></i>
@@ -62,7 +75,11 @@
             </div>
 
             <!-- Downloads / Usage -->
+<<<<<<< HEAD
             <div class="group bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 rounded-2xl border border-blue-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-6">
+=======
+            <div class="group bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-white/40 p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                 <div class="flex items-center space-x-4">
                     <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
                         <i class="fas fa-download text-white text-lg"></i>
@@ -79,8 +96,13 @@
         <!-- Profile + Chart + Recent Activity -->
         <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-6">
             <!-- Profile Overview -->
+<<<<<<< HEAD
             <div class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
                 <div class="px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-white via-blue-50/30 to-indigo-50/30">
+=======
+            <div class="bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-white/40 overflow-hidden">
+                <div class="px-6 py-4 border-b border-gray-200/60 bg-gradient-to-r from-white/80 via-blue-50/50 to-indigo-50/50">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                     <div class="flex items-center space-x-3">
                         <div class="p-2 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg">
                             <i class="fas fa-user text-white text-lg"></i>
@@ -117,8 +139,13 @@
 
             <!-- Progress Chart -->
             <div class="xl:col-span-2 space-y-6">
+<<<<<<< HEAD
                 <div class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
                     <div class="px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-white via-purple-50/30 to-purple-100/30">
+=======
+                <div class="bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-white/40 overflow-hidden">
+                    <div class="px-6 py-4 border-b border-gray-200/60 bg-gradient-to-r from-white/80 via-purple-50/50 to-purple-100/50">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                         <div class="flex items-center space-x-3">
                             <div class="p-2 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg">
                                 <i class="fas fa-chart-line text-white text-lg"></i>
@@ -137,8 +164,13 @@
                 </div>
 
                 <!-- Recent Activity -->
+<<<<<<< HEAD
                 <div class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
                     <div class="px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-white via-blue-50/30 to-indigo-50/30">
+=======
+                <div class="bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-white/40 overflow-hidden">
+                    <div class="px-6 py-4 border-b border-gray-200/60 bg-gradient-to-r from-white/80 via-blue-50/50 to-indigo-50/50">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                         <div class="flex items-center space-x-3">
                             <div class="p-2 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg">
                                 <i class="fas fa-history text-white text-lg"></i>
@@ -156,7 +188,11 @@
                                 <a href="{{ route('user.questions.index') }}" class="inline-block mt-4 px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-semibold transition">Download a Question</a>
                             </div>
                         @else
+<<<<<<< HEAD
                             <ul class="divide-y divide-gray-200">
+=======
+                            <ul class="divide-y divide-gray-200/60">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                                 @foreach($recentCreditHistory as $entry)
                                     <li class="py-3 flex items-start justify-between">
                                         <div class="flex items-start space-x-3">
@@ -186,7 +222,10 @@
 
     </div>
 </div>
+<<<<<<< HEAD
 </div>
+=======
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

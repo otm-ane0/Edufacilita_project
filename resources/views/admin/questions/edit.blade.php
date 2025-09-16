@@ -1,6 +1,10 @@
 @extends('layouts.admin')
 
 @push('head')
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/classic/ckeditor.js"></script>
@@ -12,6 +16,12 @@
         height: auto !important;
     }
 </style>
+<<<<<<< HEAD
+=======
+=======
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 @endpush
 
 @section('content')
@@ -95,10 +105,166 @@
                                 Question Text *
                             </label>
                             <textarea name="question" id="question" rows="5"
+<<<<<<< HEAD
                                       class="rich-text w-full border-2 border-gray-200 rounded-xl p-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200 resize-y hover:border-gray-300 bg-white shadow-sm"
                                       placeholder="Enter the complete question text with proper formatting..." data-required="true">{{ old('question', $question->question) }}</textarea>
                         </div>
 
+=======
+<<<<<<< HEAD
+                                      class="rich-text w-full border-2 border-gray-200 rounded-xl p-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200 resize-y hover:border-gray-300 bg-white shadow-sm"
+                                      placeholder="Enter the complete question text with proper formatting..." data-required="true">{{ old('question', $question->question) }}</textarea>
+=======
+                                      class="w-full border-2 border-gray-200 rounded-xl p-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200 resize-y hover:border-gray-300 bg-white shadow-sm"
+                                      placeholder="Enter the complete question text with proper formatting..." required>{{ old('question', $question->question) }}</textarea>
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
+                        </div>
+
+                        <!-- Options -->
+                        <div class="space-y-3">
+                            <label for="options" class="flex items-center text-sm font-bold text-gray-800 uppercase tracking-wide">
+                                <div class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-list-ul text-white text-sm"></i>
+                                </div>
+                                Answer Options *
+                            </label>
+                            <textarea name="options" id="options" rows="5"
+<<<<<<< HEAD
+                                      class="rich-text w-full border-2 border-gray-200 rounded-xl p-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200 resize-y hover:border-gray-300 bg-white shadow-sm"
+                                      placeholder="Enter all possible answer options (A, B, C, D)..." data-required="true">{{ old('options', $question->options) }}</textarea>
+=======
+                                      class="w-full border-2 border-gray-200 rounded-xl p-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200 resize-y hover:border-gray-300 bg-white shadow-sm"
+                                      placeholder="Enter all possible answer options (A, B, C, D)..." required>{{ old('options', $question->options) }}</textarea>
+                            
+                            <!-- Options Images Upload -->
+                            <div class="mt-4">
+                                <label class="flex items-center text-sm font-bold text-gray-800 uppercase tracking-wide mb-3">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-3">
+                                        <i class="fas fa-images text-white text-sm"></i>
+                                    </div>
+                                    Option Images (Optional)
+                                </label>
+                                
+                                <!-- Display current option images if they exist -->
+                                @if($question->options_images && count($question->options_images) > 0)
+                                <div class="mb-4 p-4 bg-blue-50 rounded-xl border border-blue-200">
+                                    <h4 class="text-sm font-semibold text-blue-800 mb-3">Current Option Images:</h4>
+                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                        @foreach($question->options_images as $index => $optionImage)
+                                            @if($optionImage)
+                                            <div class="text-center">
+                                                <div class="text-xs font-medium text-gray-600 mb-1">Option {{ chr(65 + $index) }}</div>
+                                                <img src="{{ asset('storage/' . $optionImage) }}" alt="Option {{ chr(65 + $index) }}" class="w-full h-20 object-cover rounded-lg border border-gray-200">
+                                            </div>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                </div>
+                                @endif
+                                
+                                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 border-2 border-dashed border-blue-200 hover:border-blue-300 transition-all duration-300 hover:shadow-md">
+                                        <div class="text-center mb-3">
+                                            <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">A</div>
+                                            <label for="option_image_a" class="block text-sm font-medium text-blue-700">Option A Image</label>
+                                        </div>
+                                        <input type="file" name="option_images[]" id="option_image_a" accept="image/*"
+                                               class="w-full border border-blue-200 rounded-lg p-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-200 file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                                    </div>
+                                    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-4 border-2 border-dashed border-green-200 hover:border-green-300 transition-all duration-300 hover:shadow-md">
+                                        <div class="text-center mb-3">
+                                            <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">B</div>
+                                            <label for="option_image_b" class="block text-sm font-medium text-green-700">Option B Image</label>
+                                        </div>
+                                        <input type="file" name="option_images[]" id="option_image_b" accept="image/*"
+                                               class="w-full border border-green-200 rounded-lg p-2 focus:border-green-500 focus:ring-2 focus:ring-green-100 transition-all duration-200 file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100">
+                                    </div>
+                                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-4 border-2 border-dashed border-yellow-200 hover:border-yellow-300 transition-all duration-300 hover:shadow-md">
+                                        <div class="text-center mb-3">
+                                            <div class="w-8 h-8 bg-yellow-500 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">C</div>
+                                            <label for="option_image_c" class="block text-sm font-medium text-yellow-700">Option C Image</label>
+                                        </div>
+                                        <input type="file" name="option_images[]" id="option_image_c" accept="image/*"
+                                               class="w-full border border-yellow-200 rounded-lg p-2 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-100 transition-all duration-200 file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100">
+                                    </div>
+                                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4 border-2 border-dashed border-purple-200 hover:border-purple-300 transition-all duration-300 hover:shadow-md">
+                                        <div class="text-center mb-3">
+                                            <div class="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">D</div>
+                                            <label for="option_image_d" class="block text-sm font-medium text-purple-700">Option D Image</label>
+                                        </div>
+                                        <input type="file" name="option_images[]" id="option_image_d" accept="image/*"
+                                               class="w-full border border-purple-200 rounded-lg p-2 focus:border-purple-500 focus:ring-2 focus:ring-purple-100 transition-all duration-200 file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100">
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-2 text-sm text-blue-700 bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg mt-4 border border-blue-200">
+                                    <i class="fas fa-info-circle text-blue-500"></i>
+                                    <span>Upload new images to replace existing ones. JPG, PNG, GIF up to 2MB each. Each option will be displayed in a beautiful grid layout.</span>
+                                </div>
+                            </div>
+                            
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
+                            <div class="flex items-center space-x-2 text-sm text-gray-600 bg-blue-50 p-3 rounded-lg">
+                                <i class="fas fa-lightbulb text-blue-500"></i>
+                                <span>Provide clear and distinct answer options for multiple choice questions</span>
+                            </div>
+                        </div>
+
+<<<<<<< HEAD
+=======
+                        <!-- Text Options Section -->
+                        <div class="space-y-4">
+                            <label class="flex items-center text-sm font-bold text-gray-800 uppercase tracking-wide">
+                                <div class="w-8 h-8 bg-gray-600 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-align-left text-white text-sm"></i>
+                                </div>
+                                Option Text Descriptions (with LaTeX support)
+                            </label>
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 border-2 border-blue-200 hover:border-blue-300 transition-all duration-300">
+                                    <div class="flex items-center mb-3">
+                                        <div class="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center mr-2 text-xs font-bold">A</div>
+                                        <label for="text_option_a" class="text-sm font-medium text-blue-700">Option A Text</label>
+                                    </div>
+                                    <textarea name="text_options[]" id="text_option_a" rows="3"
+                                              class="w-full border border-blue-200 rounded-lg p-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-200 resize-none font-mono text-sm"
+                                              placeholder="Enter text description for option A (LaTeX supported: $x^2$ or $$\frac{a}{b}$$)">{{ old('text_options.0', isset($question->text_options[0]) ? $question->text_options[0] : '') }}</textarea>
+                                </div>
+                                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-4 border-2 border-green-200 hover:border-green-300 transition-all duration-300">
+                                    <div class="flex items-center mb-3">
+                                        <div class="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center mr-2 text-xs font-bold">B</div>
+                                        <label for="text_option_b" class="text-sm font-medium text-green-700">Option B Text</label>
+                                    </div>
+                                    <textarea name="text_options[]" id="text_option_b" rows="3"
+                                              class="w-full border border-green-200 rounded-lg p-3 focus:border-green-500 focus:ring-2 focus:ring-green-100 transition-all duration-200 resize-none font-mono text-sm"
+                                              placeholder="Enter text description for option B (LaTeX supported: $x^2$ or $$\frac{a}{b}$$)">{{ old('text_options.1', isset($question->text_options[1]) ? $question->text_options[1] : '') }}</textarea>
+                                </div>
+                                <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-4 border-2 border-yellow-200 hover:border-yellow-300 transition-all duration-300">
+                                    <div class="flex items-center mb-3">
+                                        <div class="w-6 h-6 bg-yellow-500 text-white rounded-full flex items-center justify-center mr-2 text-xs font-bold">C</div>
+                                        <label for="text_option_c" class="text-sm font-medium text-yellow-700">Option C Text</label>
+                                    </div>
+                                    <textarea name="text_options[]" id="text_option_c" rows="3"
+                                              class="w-full border border-yellow-200 rounded-lg p-3 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-100 transition-all duration-200 resize-none font-mono text-sm"
+                                              placeholder="Enter text description for option C (LaTeX supported: $x^2$ or $$\frac{a}{b}$$)">{{ old('text_options.2', isset($question->text_options[2]) ? $question->text_options[2] : '') }}</textarea>
+                                </div>
+                                <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4 border-2 border-purple-200 hover:border-purple-300 transition-all duration-300">
+                                    <div class="flex items-center mb-3">
+                                        <div class="w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center mr-2 text-xs font-bold">D</div>
+                                        <label for="text_option_d" class="text-sm font-medium text-purple-700">Option D Text</label>
+                                    </div>
+                                    <textarea name="text_options[]" id="text_option_d" rows="3"
+                                              class="w-full border border-purple-200 rounded-lg p-3 focus:border-purple-500 focus:ring-2 focus:ring-purple-100 transition-all duration-200 resize-none font-mono text-sm"
+                                              placeholder="Enter text description for option D (LaTeX supported: $x^2$ or $$\frac{a}{b}$$)">{{ old('text_options.3', isset($question->text_options[3]) ? $question->text_options[3] : '') }}</textarea>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2 text-sm text-gray-700 bg-gradient-to-r from-gray-50 to-slate-50 p-4 rounded-lg border border-gray-200">
+                                <i class="fas fa-superscript text-gray-500"></i>
+                                <span>Add text descriptions for options. Use LaTeX syntax for mathematical expressions: inline $x^2 + y^2$ or display $$\frac{a+b}{c}$$</span>
+                            </div>
+                        </div>
+
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                         <!-- Answer -->
                         <div class="space-y-3">
                             <label for="answer" class="flex items-center text-sm font-bold text-gray-800 uppercase tracking-wide">
@@ -108,8 +274,48 @@
                                 Correct Answer *
                             </label>
                             <textarea name="answer" id="answer" rows="4"
+<<<<<<< HEAD
                                       class="rich-text w-full border-2 border-gray-200 rounded-xl p-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200 resize-y hover:border-gray-300 bg-white shadow-sm"
                                       placeholder="Enter the complete correct answer with explanation..." data-required="true">{{ old('answer', $question->answer) }}</textarea>
+=======
+<<<<<<< HEAD
+                                      class="rich-text w-full border-2 border-gray-200 rounded-xl p-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200 resize-y hover:border-gray-300 bg-white shadow-sm"
+                                      placeholder="Enter the complete correct answer with explanation..." data-required="true">{{ old('answer', $question->answer) }}</textarea>
+=======
+                                      class="w-full border-2 border-gray-200 rounded-xl p-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200 resize-y hover:border-gray-300 bg-white shadow-sm"
+                                      placeholder="Enter the complete correct answer with explanation..." required>{{ old('answer', $question->answer) }}</textarea>
+                            
+                            <!-- Answer Image Upload -->
+                            <div class="mt-4">
+                                <label for="answer_image" class="flex items-center text-sm font-bold text-gray-800 uppercase tracking-wide mb-3">
+                                    <div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center mr-3">
+                                        <i class="fas fa-image text-white text-sm"></i>
+                                    </div>
+                                    Answer Image (Optional)
+                                </label>
+                                
+                                <!-- Display current answer image if it exists -->
+                                @if($question->answer_image)
+                                <div class="mb-4 p-4 bg-emerald-50 rounded-xl border border-emerald-200">
+                                    <h4 class="text-sm font-semibold text-emerald-800 mb-3">Current Answer Image:</h4>
+                                    <div class="max-w-xs">
+                                        <img src="{{ asset('storage/' . $question->answer_image) }}" alt="Current Answer Image" class="w-full h-auto rounded-lg border border-gray-200 shadow-sm">
+                                    </div>
+                                </div>
+                                @endif
+                                
+                                <div class="bg-emerald-50 rounded-xl p-4 border-2 border-dashed border-emerald-200 hover:border-emerald-300 transition-all duration-300">
+                                    <input type="file" name="answer_image" id="answer_image" accept="image/*"
+                                           class="w-full border border-gray-200 rounded-lg p-3 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition-all duration-200 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100">
+                                    <div class="flex items-center space-x-2 text-sm text-emerald-700 bg-emerald-100 p-3 rounded-lg mt-3">
+                                        <i class="fas fa-info-circle text-emerald-500"></i>
+                                        <span>Upload a new image to replace the current answer explanation image. JPG, PNG, GIF up to 2MB</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                             <div class="flex items-center space-x-2 text-sm text-emerald-700 bg-emerald-50 p-3 rounded-lg">
                                 <i class="fas fa-shield-check text-emerald-500"></i>
                                 <span>Provide the definitive correct answer for this question</span>
@@ -118,6 +324,7 @@
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <!-- LaTeX Content Section -->
                 <div class="group bg-gradient-to-br from-orange-50 to-red-100 rounded-2xl p-8 border border-orange-200 hover:border-orange-300 transition-all duration-300 hover:shadow-lg">
                     <div class="flex items-center space-x-3 mb-8">
@@ -212,6 +419,8 @@
                     </div>
                 </div>
 
+=======
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                 <!-- Question Properties Section -->
                 <div class="group bg-gradient-to-br from-purple-50 to-pink-100 rounded-2xl p-8 border border-purple-200 hover:border-purple-300 transition-all duration-300 hover:shadow-lg">
                     <div class="flex items-center space-x-3 mb-8">
@@ -713,6 +922,10 @@ document.addEventListener('DOMContentLoaded', function() {
             subjectSelect.dispatchEvent(new Event('change'));
         }
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 
     // File Upload Adapter Plugin (saves files to server instead of base64)
     function FileUploadAdapterPlugin(editor){
@@ -750,7 +963,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     const editorsInstances = {}; // store editors for validation
+<<<<<<< HEAD
     const requiredEditors = ['#question', '#answer'];
+=======
+    const requiredEditors = ['#question', '#options', '#answer'];
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 
     function initRichEditor(selector){
         const el = document.querySelector(selector);
@@ -774,6 +991,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     initRichEditor('#question');
+<<<<<<< HEAD
+=======
+    initRichEditor('#options');
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
     initRichEditor('#answer');
 
     // Add custom validation for rich editors to existing form submit event
@@ -797,6 +1018,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 });
 </script>
 @endsection

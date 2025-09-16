@@ -8293,12 +8293,20 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
+<<<<<<< HEAD
     "stability-flags": {},
+=======
+    "stability-flags": [],
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.2"
     },
+<<<<<<< HEAD
     "platform-dev": {},
+=======
+    "platform-dev": [],
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
     "plugin-api-version": "2.6.0"
 }

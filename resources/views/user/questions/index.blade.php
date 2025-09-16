@@ -31,6 +31,10 @@
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
     .credit-warning {
@@ -82,7 +86,11 @@
         pointer-events: auto;
     }
     
+<<<<<<< HEAD
     /* Image styling with 350px width */
+=======
+    /* Disable drag for images */
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
     .question-content img {
         -webkit-user-drag: none;
         -khtml-user-drag: none;
@@ -90,6 +98,7 @@
         -o-user-drag: none;
         user-drag: none;
         pointer-events: none;
+<<<<<<< HEAD
         width: 350px;
         height: auto;
         max-width: 100%;
@@ -105,6 +114,8 @@
             width: 100%;
             max-width: 350px;
         }
+=======
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
     }
     
     /* Blur effect when trying to inspect */
@@ -133,6 +144,7 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
+<<<<<<< HEAD
     
     /* Layout optimizations for better space usage */
     .question-container {
@@ -238,6 +250,144 @@
             padding: 2rem;
         }
     }
+=======
+<<<<<<< HEAD
+=======
+    
+    /* Enhanced visual styles */
+    .shadow-3xl {
+        box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+    }
+    
+    .question-card:hover {
+        transform: translateY(-2px);
+    }
+    
+    .group:hover .group-hover\:scale-105 {
+        transform: scale(1.05);
+    }
+    
+    .option-card {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .option-card:hover {
+        transform: translateY(-4px) scale(1.02);
+    }
+    
+    /* Gradient text effect */
+    .gradient-text {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    /* Smooth animations */
+    .animate-fade-in {
+        animation: fadeIn 0.6s ease-out;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Image hover effects */
+    .image-container {
+        overflow: hidden;
+        border-radius: 1rem;
+    }
+    
+    .image-container img {
+        transition: transform 0.5s ease;
+    }
+    
+    .image-container:hover img {
+        transform: scale(1.1);
+    }
+    
+    /* LaTeX content styling */
+    .mathjax-content {
+        font-family: 'Computer Modern', serif;
+        line-height: 1.8;
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    /* Better text rendering for large content */
+    .text-container {
+        max-width: 100%;
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+    
+    /* Smooth scrollbar for text areas */
+    .overflow-y-auto {
+        scrollbar-width: thin;
+        scrollbar-color: #cbd5e0 #f7fafc;
+    }
+    
+    .overflow-y-auto::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    .overflow-y-auto::-webkit-scrollbar-track {
+        background: #f7fafc;
+        border-radius: 4px;
+    }
+    
+    .overflow-y-auto::-webkit-scrollbar-thumb {
+        background: #cbd5e0;
+        border-radius: 4px;
+    }
+    
+    .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+        background: #a0aec0;
+    }
+    
+    /* Enhanced typography for mathematical content */
+    .math-text {
+        font-size: 1.1rem;
+        line-height: 2;
+        letter-spacing: 0.02em;
+    }
+    
+    /* Better spacing for long paragraphs */
+    .text-content p {
+        margin-bottom: 1rem;
+    }
+    
+    .text-content ul, .text-content ol {
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Responsive text sizing */
+    @media (max-width: 768px) {
+        .mathjax-content {
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+    }
+    
+    @media (min-width: 1024px) {
+        .mathjax-content {
+            font-size: 1.125rem;
+            line-height: 1.9;
+        }
+    }
+    
+    /* Custom checkbox styling */
+    .question-checkbox {
+        transition: all 0.3s ease;
+    }
+    
+    .question-checkbox:checked {
+        transform: scale(1.1);
+    }
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 </style>
 @endpush
 
@@ -245,12 +395,29 @@
 
 <!-- Background with gradient -->
 <div class="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+<<<<<<< HEAD
     <div class="container mx-auto px-4 py-4 max-w-full">
 
         <!-- Stats Dashboard -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
             <!-- Total Questions -->
             <div class="bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
+=======
+    <div class="container mx-auto px-4 py-6 max-w-7xl">
+        <!-- Header Section -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2">
+                <i class="fas fa-brain text-blue-600 mr-3"></i>
+                Question Bank
+            </h1>
+            <p class="text-gray-600 text-lg">Browse and select questions for your exam preparation</p>
+        </div>
+
+        <!-- Stats Dashboard -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <!-- Total Questions -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                 <div class="flex items-center">
                     <div class="bg-blue-100 p-3 rounded-xl mr-4">
                         <i class="fas fa-list text-blue-600 text-xl"></i>
@@ -263,7 +430,11 @@
             </div>
 
             <!-- Selected Questions -->
+<<<<<<< HEAD
             <div class="bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
+=======
+            <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                 <div class="flex items-center">
                     <div class="bg-green-100 p-3 rounded-xl mr-4">
                         <i class="fas fa-check-circle text-green-600 text-xl"></i>
@@ -276,7 +447,11 @@
             </div>
 
             <!-- Credits Required -->
+<<<<<<< HEAD
             <div class="bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
+=======
+            <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                 <div class="flex items-center">
                     <div class="bg-yellow-100 p-3 rounded-xl mr-4">
                         <i class="fas fa-coins text-yellow-600 text-xl"></i>
@@ -289,7 +464,11 @@
             </div>
 
             <!-- Available Credits -->
+<<<<<<< HEAD
             <div class="bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
+=======
+            <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                 <div class="flex items-center">
                     <div class="bg-purple-100 p-3 rounded-xl mr-4">
                         <i class="fas fa-wallet text-purple-600 text-xl"></i>
@@ -303,11 +482,19 @@
         </div>
 
         <!-- Main Content Layout -->
+<<<<<<< HEAD
         <div class="flex flex-col xl:flex-row gap-6">
             <!-- Sidebar: Filter and Search -->
             <div class="w-full xl:w-80 flex-shrink-0 order-2 xl:order-1">
                 <div class="bg-white rounded-2xl shadow-lg p-4 sticky top-8">
                     <div class="flex items-center mb-4">
+=======
+        <div class="flex flex-col xl:flex-row gap-8">
+            <!-- Sidebar: Filter and Search -->
+            <div class="w-full xl:w-80 flex-shrink-0 order-2 xl:order-1">
+                <div class="bg-white rounded-2xl shadow-lg p-6 sticky top-8">
+                    <div class="flex items-center mb-6">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                         <i class="fas fa-filter text-indigo-600 text-xl mr-3"></i>
                         <h3 class="text-xl font-bold text-gray-800">Filter & Search</h3>
                     </div>
@@ -419,6 +606,7 @@
 
             <!-- Main Question Area -->
             <div class="flex-1 order-1 xl:order-2">
+<<<<<<< HEAD
                 <!-- Question Content -->
                 <div class="w-full">
                         <!-- Navigation Controls -->
@@ -530,6 +718,115 @@
                             </div>
                         </div>
                         </div>
+=======
+                <!-- Navigation Controls -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
+                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                        <!-- Music Player Style Navigation -->
+                        <div class="flex justify-center items-center space-x-1">
+                            <!-- First Button -->
+                            <button type="button" id="firstBtn"
+                                    class="bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-600 p-3 rounded-full transition-all duration-200 shadow-sm hover:shadow-md"
+                                    title="First Question">
+                                <i class="fas fa-backward-step text-lg"></i>
+                            </button>
+
+                            <!-- Previous Button -->
+                            <button type="button" id="prevBtn"
+                                    class="bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-600 p-3 rounded-full transition-all duration-200 shadow-sm hover:shadow-md ml-1"
+                                    title="Previous Question">
+                                <i class="fas fa-caret-left text-lg"></i>
+                            </button>
+
+                            <!-- Question ID Selector -->
+                            <div class="mx-6 flex items-center bg-gray-50 rounded-full px-4 py-2 border border-gray-200">
+                                <label for="gotoInput" class="text-sm font-medium text-gray-600 mr-2">Q:</label>
+                                <input type="number" id="gotoInput" min="1"
+                                       class="w-16 bg-transparent text-center text-lg font-bold text-gray-800 focus:outline-none focus:ring-0 border-0 p-0"
+                                       placeholder="1">
+                                <span class="text-gray-400 mx-1">/</span>
+                                <span id="totalQuestionsNav" class="text-gray-600 font-medium">{{ count($questions) }}</span>
+                                <button type="button" id="gotoBtn"
+                                        class="ml-2 text-blue-600 hover:text-blue-800 transition-colors"
+                                        title="Go to Question">
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+
+                            <!-- Next Button -->
+                            <button type="button" id="nextBtn"
+                                    class="bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-600 p-3 rounded-full transition-all duration-200 shadow-sm hover:shadow-md mr-1"
+                                    title="Next Question">
+                                <i class="fas fa-caret-right text-lg"></i>
+                            </button>
+
+                            <!-- Last Button -->
+                            <button type="button" id="lastBtn"
+                                    class="bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-600 p-3 rounded-full transition-all duration-200 shadow-sm hover:shadow-md"
+                                    title="Last Question">
+                                <i class="fas fa-forward-step text-lg"></i>
+                            </button>
+                        </div>
+
+                        <!-- Current Question Info -->
+                        <div class="text-center lg:text-right">
+                            <p class="text-sm text-gray-600">Question <span id="currentQuestionIndex">1</span> of <span id="totalVisible">{{ count($questions) }}</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question Cards Container -->
+                <div id="questionContainer">
+                    <!-- Questions will be rendered here by JavaScript -->
+                </div>
+
+                <!-- No Questions Found -->
+                <div id="noQuestionsFound" class="hidden text-center py-12">
+                    <div class="bg-white rounded-2xl shadow-lg p-8">
+                        <i class="fas fa-search text-gray-400 text-6xl mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-600 mb-2">No Questions Found</h3>
+                        <p class="text-gray-500">Try adjusting your search criteria or filters.</p>
+                    </div>
+                </div>
+
+                <!-- Download Section -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 mt-6">
+                    <!-- Credit Warning -->
+                    <div id="creditWarning" class="hidden mb-6 bg-red-50 border border-red-200 rounded-xl p-4 credit-warning">
+                        <div class="flex items-center">
+                            <i class="fas fa-exclamation-triangle text-red-500 text-xl mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold text-red-800">Insufficient Credits</h4>
+                                <p class="text-red-600 text-sm">You need <span id="creditShortage">0</span> more credits to download the selected questions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Selection Summary -->
+                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                        <div class="space-y-2">
+                            <div class="flex items-center text-lg">
+                                <i class="fas fa-list-check text-blue-600 mr-3"></i>
+                                <span class="font-semibold text-gray-800">
+                                    <span id="selectedCountText">0</span> Questions Selected
+                                </span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                <span>1 credit per question • Total: <span id="totalCreditsNeeded" class="font-semibold">0</span> credits</span>
+                            </div>
+                        </div>
+
+                        <form id="downloadForm" method="POST" action="{{ route('user.questions.download') }}">
+                            @csrf
+                            <input type="hidden" name="selected_questions" id="selectedQuestionIds">
+                            <button type="submit" id="downloadBtn" disabled
+                                    class="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white px-8 py-3 rounded-xl font-semibold shadow-lg transition-all duration-200 transform hover:scale-105 disabled:transform-none">
+                                <i class="fas fa-download mr-2"></i>
+                                Download Selected Questions
+                            </button>
+                        </form>
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                     </div>
                 </div>
             </div>
@@ -537,6 +834,7 @@
     </div>
 </div>
 
+<<<<<<< HEAD
 <!-- Email Modal -->
 <div id="emailModal" class="fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full z-50 hidden">
     <div class="flex items-center justify-center min-h-full p-4">
@@ -656,6 +954,9 @@ Edufacilita Team</textarea>
         </form>
     </div>
 </div>@push('scripts')
+=======
+@push('scripts')
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 <script>
     // Questions data from Laravel
     const questionsData = @json($questions);
@@ -668,11 +969,23 @@ Edufacilita Team</textarea>
     const questionContainer = document.getElementById('questionContainer');
     const noQuestionsFound = document.getElementById('noQuestionsFound');
     const selectedCount = document.getElementById('selectedCount');
+<<<<<<< HEAD
     const creditsNeeded = document.getElementById('creditsNeeded');
+=======
+    const selectedCountText = document.getElementById('selectedCountText');
+    const creditsNeeded = document.getElementById('creditsNeeded');
+    const totalCreditsNeeded = document.getElementById('totalCreditsNeeded');
+    const availableCredits = document.getElementById('availableCredits');
+    const creditWarning = document.getElementById('creditWarning');
+    const creditShortage = document.getElementById('creditShortage');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const selectedQuestionIds = document.getElementById('selectedQuestionIds');
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
     const currentQuestionIndex = document.getElementById('currentQuestionIndex');
     const totalVisible = document.getElementById('totalVisible');
     const totalQuestionsNav = document.getElementById('totalQuestionsNav');
     const gotoInput = document.getElementById('gotoInput');
+<<<<<<< HEAD
     const downloadBtn = document.getElementById('downloadBtn');
     const downloadCount = document.getElementById('downloadCount');
     const creditWarning = document.getElementById('creditWarning');
@@ -690,6 +1003,8 @@ Edufacilita Team</textarea>
     const modalCreditsNeeded = document.getElementById('modalCreditsNeeded');
     const modalCreditWarning = document.getElementById('modalCreditWarning');
     const modalCreditShortage = document.getElementById('modalCreditShortage');
+=======
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 
     // Difficulty color mapping
     const difficultyColors = {
@@ -712,6 +1027,7 @@ Edufacilita Team</textarea>
         const difficultyClass = difficultyColors[question.difficulty?.toLowerCase()] || 'bg-gray-100 text-gray-800';
         const typeClass = typeColors[question.question_type?.toLowerCase()] || 'bg-gray-100 text-gray-800';
 
+<<<<<<< HEAD
         // Display images if available
         let questionImageHtml = '';
         if (question.question_image_path) {
@@ -738,6 +1054,223 @@ Edufacilita Team</textarea>
         }
 
         return `
+=======
+        // Image HTML if exists
+        const imageHtml = question.image ? `
+<<<<<<< HEAD
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 mb-6 question-content">
+                <div class="flex items-center mb-4">
+                    <div class="bg-purple-100 p-2 rounded-lg mr-3">
+                        <i class="fas fa-image text-purple-600"></i>
+                    </div>
+                    <label class="text-lg font-bold text-gray-800">Visual Content</label>
+                </div>
+                <div class="flex justify-center">
+                    <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-200 max-w-lg no-select">
+                        <img src="/storage/${question.image}" alt="Question Image" class="w-full h-auto no-select" draggable="false" oncontextmenu="return false;">
+=======
+            <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100 mb-8 question-content">
+                <div class="flex items-center mb-6">
+                    <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-3 rounded-lg mr-4 shadow-lg">
+                        <i class="fas fa-image text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800">Visual Content</h3>
+                        <p class="text-gray-600 text-sm">Supporting image for the question</p>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="rounded-2xl overflow-hidden shadow-xl border-2 border-gray-200 max-w-2xl no-select bg-gradient-to-br from-gray-50 to-gray-100 p-4">
+                        <img src="/storage/${question.image}" alt="Question Image" class="w-full h-auto no-select rounded-xl shadow-lg" draggable="false" oncontextmenu="return false;">
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
+                    </div>
+                </div>
+            </div>
+        ` : '';
+
+        // Options HTML
+        const optionsHtml = question.options ? `
+<<<<<<< HEAD
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 mb-6 question-content">
+                <div class="flex items-center mb-4">
+                    <div class="bg-orange-100 p-2 rounded-lg mr-3">
+                        <i class="fas fa-list-ul text-orange-600"></i>
+                    </div>
+                    <label class="text-lg font-bold text-gray-800">Answer Options</label>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                    <div class="mathjax-content text-gray-700 leading-relaxed space-y-2 no-select">${question.options.replace(/\n/g, '<br>')}</div>
+                </div>
+=======
+            <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100 mb-6 question-content">
+                <div class="flex items-center mb-6">
+                    <div class="bg-gradient-to-r from-orange-500 to-red-500 p-3 rounded-lg mr-4 shadow-lg">
+                        <i class="fas fa-list-ul text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800">Answer Options</h3>
+                        <p class="text-gray-600 text-sm">Choose the correct answer from the options below</p>
+                    </div>
+                </div>
+                
+                <!-- Traditional Text Options -->
+                <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 border border-gray-200 mb-8">
+                    <div class="mathjax-content text-gray-800 leading-loose space-y-4 no-select text-lg font-medium min-h-[100px] overflow-y-auto max-h-[400px]">
+                        <div class="whitespace-pre-wrap break-words">
+                            ${question.options.replace(/\n/g, '<br>')}
+                        </div>
+                    </div>
+                </div>
+
+                ${question.options_images && Object.keys(question.options_images).length > 0 ? `
+                    <div class="mb-8">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-gradient-to-r from-purple-500 to-indigo-500 p-2 rounded-lg mr-3 shadow-md">
+                                <i class="fas fa-images text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-gray-800">Visual Options</h4>
+                        </div>
+                        <div class="grid grid-cols-1 gap-8">
+                            ${Object.entries(question.options_images).map(([index, imagePath]) => 
+                                imagePath && imagePath.trim() !== '' ? `
+                                    <div class="group bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-blue-300 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 no-select">
+                                        <!-- Option Header -->
+                                        <div class="flex items-center justify-center mb-6">
+                                            <div class="flex items-center space-x-4">
+                                                <span class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full text-xl font-bold shadow-lg">
+                                                    ${String.fromCharCode(65 + parseInt(index))}
+                                                </span>
+                                                <div class="text-center">
+                                                    <div class="text-xl font-bold text-gray-800">Option ${String.fromCharCode(65 + parseInt(index))}</div>
+                                                    <div class="text-sm text-gray-500">Visual and text content</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Image Container -->
+                                        <div class="relative rounded-xl overflow-hidden border-2 border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 group-hover:border-blue-300 transition-all duration-300 mb-6">
+                                            <img src="/storage/${imagePath}" 
+                                                 alt="Option ${String.fromCharCode(65 + parseInt(index))} Image" 
+                                                 class="w-full h-64 object-contain bg-white no-select group-hover:scale-105 transition-transform duration-500" 
+                                                 draggable="false" 
+                                                 oncontextmenu="return false;"
+                                                 onerror="this.parentElement.innerHTML='<div class=\\'w-full h-64 bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center text-red-400\\><div class=\\'text-center p-4\\><i class=\\'fas fa-exclamation-triangle text-red-500 text-2xl mb-3\\></i><div class=\\'text-lg font-semibold\\>Image not available</div><div class=\\'text-sm\\>Please contact support if this persists</div></div></div>';">
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                        </div>
+
+                                        ${question.text_options && question.text_options[index] && question.text_options[index].trim() !== '' ? `
+                                            <!-- Text Description -->
+                                            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
+                                                <div class="flex items-center mb-4">
+                                                    <i class="fas fa-align-left text-blue-500 mr-3 text-lg"></i>
+                                                    <span class="text-base font-bold text-blue-700 uppercase tracking-wide">Description</span>
+                                                </div>
+                                                <div class="mathjax-content text-gray-800 leading-loose no-select bg-white p-6 rounded-xl border border-blue-100 text-lg min-h-[120px] overflow-y-auto max-h-[400px]">
+                                                    <div class="whitespace-pre-wrap break-words">
+                                                        ${question.text_options[index].replace(/\n/g, '<br>')}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ` : ''}
+                                    </div>
+                                ` : ''
+                            ).join('')}
+                        </div>
+                        <div class="mt-6 text-center">
+                            <div class="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-100 to-red-100 px-4 py-2 rounded-full border border-orange-200">
+                                <i class="fas fa-info-circle text-orange-500"></i>
+                                <span class="text-sm font-medium text-orange-700">
+                                    ${Object.values(question.options_images).filter(img => img && img.trim() !== '').length} of 4 options have visual content
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                ` : ''}
+
+                ${question.text_options && question.text_options.some(text => text && text.trim() !== '') && (!question.options_images || Object.keys(question.options_images).length === 0) ? `
+                    <div class="mb-6">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-gradient-to-r from-green-500 to-teal-500 p-2 rounded-lg mr-3 shadow-md">
+                                <i class="fas fa-align-left text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-gray-800">Detailed Option Descriptions</h4>
+                        </div>
+                        <div class="grid grid-cols-1 gap-8">
+                            ${question.text_options.map((textOption, index) => 
+                                textOption && textOption.trim() !== '' ? `
+                                    <div class="group bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-green-300 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-2 no-select">
+                                        <div class="flex items-center mb-6">
+                                            <span class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-full text-lg font-bold mr-4 shadow-lg">
+                                                ${String.fromCharCode(65 + index)}
+                                            </span>
+                                            <div class="text-xl font-bold text-green-700">
+                                                Option ${String.fromCharCode(65 + index)}
+                                            </div>
+                                        </div>
+                                        <div class="mathjax-content text-gray-800 leading-loose no-select bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-xl border border-gray-200 text-lg min-h-[150px] overflow-y-auto max-h-[500px]">
+                                            <div class="whitespace-pre-wrap break-words">
+                                                ${textOption.replace(/\n/g, '<br>')}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ` : ''
+                            ).join('')}
+                        </div>
+                        <div class="mt-6 text-center">
+                            <div class="inline-flex items-center space-x-2 bg-gradient-to-r from-green-100 to-teal-100 px-4 py-2 rounded-full border border-green-200">
+                                <i class="fas fa-superscript text-green-500"></i>
+                                <span class="text-sm font-medium text-green-700">
+                                    ${question.text_options.filter(text => text && text.trim() !== '').length} of 4 options have detailed descriptions with LaTeX support
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                ` : ''}
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
+            </div>
+        ` : '';
+
+        // Answer section - only show warning
+        const answerHtml = `
+<<<<<<< HEAD
+            <div class="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-6 shadow-sm border border-yellow-200 mb-6">
+                <div class="flex items-center mb-4">
+                    <div class="bg-yellow-100 p-2 rounded-lg mr-3">
+                        <i class="fas fa-lock text-yellow-600"></i>
+                    </div>
+                    <label class="text-lg font-bold text-gray-800">Correct Answer</label>
+                </div>
+                <div class="bg-white rounded-xl p-4 border border-yellow-200 shadow-sm">
+                    <div class="flex items-center text-yellow-700">
+                        <i class="fas fa-download mr-2"></i>
+                        <span class="font-medium">Download this question to view the correct answer</span>
+=======
+            <div class="bg-gradient-to-br from-yellow-50 to-orange-100 rounded-xl p-8 shadow-lg border-2 border-yellow-200 mb-8">
+                <div class="flex items-center mb-6">
+                    <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-3 rounded-lg mr-4 shadow-lg">
+                        <i class="fas fa-lock text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800">Correct Answer</h3>
+                        <p class="text-gray-600 text-sm">Protected content - download required</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-yellow-200 shadow-lg">
+                    <div class="flex items-center justify-center text-yellow-700">
+                        <div class="text-center">
+                            <i class="fas fa-download text-3xl mb-3 text-yellow-500"></i>
+                            <div class="text-lg font-bold mb-2">Download Required</div>
+                            <span class="text-base">Download this question to view the correct answer and detailed solution</span>
+                        </div>
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
+                    </div>
+                </div>
+            </div>
+        `;
+
+        return `
+<<<<<<< HEAD
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
             <div class="question-card bg-white rounded-2xl shadow-lg border border-gray-100 p-6 question-card-enter no-select protected-content"
                  data-question-id="${question.id}" data-index="${index}">
                 <!-- Question Header -->
@@ -748,7 +1281,11 @@ Edufacilita Team</textarea>
                         </div>
                         <div>
                             <h3 class="text-2xl font-bold text-gray-900">Question #${question.id}</h3>
+<<<<<<< HEAD
                             <p class="text-gray-600">Question with correct answer provided</p>
+=======
+                            <p class="text-gray-600">Answer hidden - Download for complete access</p>
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                         </div>
                     </div>
                     <div class="flex items-center">
@@ -756,40 +1293,85 @@ Edufacilita Team</textarea>
                                class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2 question-checkbox"
                                data-question-id="${question.id}" ${isSelected ? 'checked' : ''}>
                         <label for="checkbox-${question.id}" class="ml-2 text-sm font-medium text-gray-700">Select</label>
+<<<<<<< HEAD
+=======
+=======
+            <div class="question-card bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-2xl border-2 border-gray-200 p-8 question-card-enter no-select protected-content transform transition-all duration-300 hover:shadow-3xl"
+                 data-question-id="${question.id}" data-index="${index}">
+                <!-- Question Header -->
+                <div class="flex items-start justify-between mb-8">
+                    <div class="flex items-center">
+                        <div class="bg-gradient-to-r from-blue-500 to-purple-500 p-4 rounded-2xl mr-5 shadow-lg">
+                            <i class="fas fa-question text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold text-gray-900">Question #${question.id}</h3>
+                            <p class="text-gray-600 text-lg">Answer hidden - Download for complete access</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white rounded-xl p-3 shadow-md border border-gray-200">
+                        <input type="checkbox" id="checkbox-${question.id}"
+                               class="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded-lg focus:ring-blue-500 focus:ring-3 question-checkbox"
+                               data-question-id="${question.id}" ${isSelected ? 'checked' : ''}>
+                        <label for="checkbox-${question.id}" class="ml-3 text-base font-semibold text-gray-700">Select Question</label>
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                     </div>
                 </div>
 
                 <!-- Question Metadata -->
+<<<<<<< HEAD
                 <div class="metadata-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
                     <div class="question-metadata flex items-center space-x-2">
+=======
+<<<<<<< HEAD
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
+                    <div class="flex items-center space-x-2">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                         <i class="fas fa-graduation-cap text-gray-600"></i>
                         <span class="text-sm text-gray-600">Education:</span>
                         <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium badge-animate">
                             ${question.education_level || 'Not specified'}
                         </span>
                     </div>
+<<<<<<< HEAD
                     <div class="question-metadata flex items-center space-x-2">
+=======
+                    <div class="flex items-center space-x-2">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                         <i class="fas fa-tag text-gray-600"></i>
                         <span class="text-sm text-gray-600">Type:</span>
                         <span class="px-3 py-1 ${typeClass} rounded-full text-sm font-medium badge-animate">
                             ${question.question_type || 'Not specified'}
                         </span>
                     </div>
+<<<<<<< HEAD
                     <div class="question-metadata flex items-center space-x-2">
+=======
+                    <div class="flex items-center space-x-2">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                         <i class="fas fa-book text-gray-600"></i>
                         <span class="text-sm text-gray-600">Subject:</span>
                         <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium badge-animate">
                             ${question.topic && question.topic.subject ? question.topic.subject.name : 'Not specified'}
                         </span>
                     </div>
+<<<<<<< HEAD
                     <div class="question-metadata flex items-center space-x-2">
+=======
+                    <div class="flex items-center space-x-2">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                         <i class="fas fa-tags text-gray-600"></i>
                         <span class="text-sm text-gray-600">Topic:</span>
                         <span class="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm font-medium badge-animate">
                             ${question.topic ? question.topic.name : 'Not specified'}
                         </span>
                     </div>
+<<<<<<< HEAD
                     <div class="question-metadata flex items-center space-x-2">
+=======
+                    <div class="flex items-center space-x-2">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                         <i class="fas fa-signal text-gray-600"></i>
                         <span class="text-sm text-gray-600">Difficulty:</span>
                         <span class="px-3 py-1 ${difficultyClass} rounded-full text-sm font-medium badge-animate">
@@ -798,10 +1380,16 @@ Edufacilita Team</textarea>
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <!-- Question Content -->
                 <div class="space-y-6">
                     <!-- Question Text -->
                     <div class="bg-white rounded-xl question-content-section shadow-sm border border-gray-100 question-content">
+=======
+                <div class="space-y-6">
+                    <!-- Question Text -->
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 question-content">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                         <div class="flex items-center mb-4">
                             <div class="bg-indigo-100 p-2 rounded-lg mr-3">
                                 <i class="fas fa-question text-indigo-600"></i>
@@ -809,6 +1397,7 @@ Edufacilita Team</textarea>
                             <label class="text-lg font-bold text-gray-800">Question</label>
                         </div>
                         <div class="prose prose-lg max-w-none">
+<<<<<<< HEAD
                             <div class="text-gray-700 leading-relaxed no-select mathjax-content">
                                 ${(question.question && question.question.trim()) ? question.question.replace(/\n/g, '<br>') : 'Question text not available'}
                             </div>
@@ -831,6 +1420,103 @@ Edufacilita Team</textarea>
                             ${answerImageHtml}
                         </div>
                     </div>
+=======
+                            <div class="mathjax-content text-gray-700 leading-relaxed no-select">${question.question ? question.question.replace(/\n/g, '<br>') : 'Question content not available'}</div>
+=======
+                <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 mb-8">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-gradient-to-r from-gray-500 to-gray-600 p-2 rounded-lg mr-3 shadow-md">
+                            <i class="fas fa-info-circle text-white"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-800">Question Details</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="flex items-center space-x-3 bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-xl border border-blue-200">
+                            <i class="fas fa-graduation-cap text-blue-600 text-lg"></i>
+                            <div>
+                                <span class="text-sm text-blue-600 font-medium">Education Level</span>
+                                <div class="font-bold text-blue-800">${question.education_level || 'Not specified'}</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3 bg-gradient-to-r from-purple-50 to-purple-100 p-4 rounded-xl border border-purple-200">
+                            <i class="fas fa-tag text-purple-600 text-lg"></i>
+                            <div>
+                                <span class="text-sm text-purple-600 font-medium">Question Type</span>
+                                <div class="font-bold text-purple-800">${question.question_type || 'Not specified'}</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3 bg-gradient-to-r from-indigo-50 to-indigo-100 p-4 rounded-xl border border-indigo-200">
+                            <i class="fas fa-book text-indigo-600 text-lg"></i>
+                            <div>
+                                <span class="text-sm text-indigo-600 font-medium">Subject</span>
+                                <div class="font-bold text-indigo-800">${question.topic && question.topic.subject ? question.topic.subject.name : 'Not specified'}</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3 bg-gradient-to-r from-teal-50 to-teal-100 p-4 rounded-xl border border-teal-200">
+                            <i class="fas fa-tags text-teal-600 text-lg"></i>
+                            <div>
+                                <span class="text-sm text-teal-600 font-medium">Topic</span>
+                                <div class="font-bold text-teal-800">${question.topic ? question.topic.name : 'Not specified'}</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3 bg-gradient-to-r from-yellow-50 to-orange-100 p-4 rounded-xl border border-yellow-200">
+                            <i class="fas fa-signal text-yellow-600 text-lg"></i>
+                            <div>
+                                <span class="text-sm text-yellow-600 font-medium">Difficulty</span>
+                                <div class="font-bold text-yellow-800">${question.difficulty ? question.difficulty.charAt(0).toUpperCase() + question.difficulty.slice(1) : 'Not specified'}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Question Text -->
+                    <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100 question-content">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-gradient-to-r from-indigo-500 to-blue-500 p-3 rounded-lg mr-4 shadow-lg">
+                                <i class="fas fa-question text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Question</h3>
+                                <p class="text-gray-600 text-sm">Read the question carefully before answering</p>
+                            </div>
+                        </div>
+                        <div class="prose prose-lg max-w-none">
+                            <div class="mathjax-content text-gray-800 leading-relaxed no-select bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-xl border border-gray-200 text-lg">${question.question ? question.question.replace(/\n/g, '<br>') : 'Question content not available'}</div>
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
+                        </div>
+                    </div>
+
+                    <!-- Image Section -->
+                    ${imageHtml}
+
+                    <!-- Options Section -->
+                    ${optionsHtml}
+
+                    <!-- Answer Section -->
+                    ${answerHtml}
+
+                    <!-- Document Section if exists -->
+                    ${question.doc ? `
+                        <div class="bg-white rounded-xl border border-gray-200 shadow-sm">
+                            <div class="bg-gray-50 px-4 py-3 border-b border-gray-200">
+                                <h3 class="text-lg font-semibold text-gray-900 flex items-center">
+                                    <i class="fas fa-file-alt text-red-600 mr-2"></i>
+                                    Document Available
+                                </h3>
+                            </div>
+                            <div class="p-4">
+                                <div class="bg-white rounded-xl p-4 shadow-sm border border-amber-100">
+                                    <p class="text-gray-600 mb-4">Additional document available for this question</p>
+                                    <div class="flex items-center text-amber-600">
+                                        <i class="fas fa-download mr-2"></i>
+                                        <span class="font-medium">Download question to access document</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ` : ''}
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                 </div>
             </div>
         `;
@@ -856,6 +1542,14 @@ Edufacilita Team</textarea>
         const question = filteredQuestions[currentIndex];
         questionContainer.innerHTML = renderQuestionCard(question, currentIndex);
 
+<<<<<<< HEAD
+=======
+        // Process MathJax for the new content
+        if (window.MathJax && window.MathJax.typesetPromise) {
+            window.MathJax.typesetPromise([questionContainer]).catch((err) => console.log(err.message));
+        }
+
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
         // Update navigation info
         currentQuestionIndex.textContent = currentIndex + 1;
         totalVisible.textContent = filteredQuestions.length;
@@ -868,6 +1562,7 @@ Edufacilita Team</textarea>
         if (checkbox) {
             checkbox.addEventListener('change', handleCheckboxChange);
         }
+<<<<<<< HEAD
 
         // Add protection to dynamically added images
         const images = questionContainer.querySelectorAll('img');
@@ -899,6 +1594,8 @@ Edufacilita Team</textarea>
                 console.log('MathJax typeset error:', err);
             });
         }
+=======
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
     }
 
     // Handle checkbox change
@@ -914,6 +1611,7 @@ Edufacilita Team</textarea>
         updateSelectionUI();
     }
 
+<<<<<<< HEAD
     // Handle download
     function handleDownload(e) {
         if (selectedQuestions.size === 0) {
@@ -1138,11 +1836,14 @@ Edufacilita Team`;
         }
     }
 
+=======
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
     // Update selection UI
     function updateSelectionUI() {
         const count = selectedQuestions.size;
         const credits = count;
 
+<<<<<<< HEAD
         // Update stats dashboard
         selectedCount.textContent = count;
         creditsNeeded.textContent = credits;
@@ -1175,6 +1876,26 @@ Edufacilita Team`;
             } else {
                 creditWarning.classList.add('hidden');
             }
+=======
+        selectedCount.textContent = count;
+        selectedCountText.textContent = count;
+        creditsNeeded.textContent = credits;
+        totalCreditsNeeded.textContent = credits;
+
+        // Update download button
+        downloadBtn.disabled = count === 0;
+
+        // Update hidden input
+        selectedQuestionIds.value = JSON.stringify([...selectedQuestions]);
+
+        // Show/hide credit warning
+        if (credits > userCredits && count > 0) {
+            creditWarning.classList.remove('hidden');
+            creditShortage.textContent = credits - userCredits;
+            downloadBtn.disabled = true;
+        } else {
+            creditWarning.classList.add('hidden');
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
         }
     }
 
@@ -1299,6 +2020,7 @@ Edufacilita Team`;
     document.getElementById('prevBtn').addEventListener('click', () => goToQuestion(currentIndex - 1));
     document.getElementById('nextBtn').addEventListener('click', () => goToQuestion(currentIndex + 1));
 
+<<<<<<< HEAD
     // Download button event listener
     if (downloadBtn) {
         downloadBtn.addEventListener('click', handleDownload);
@@ -1338,6 +2060,8 @@ Edufacilita Team`;
         }
     });
 
+=======
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
     document.getElementById('gotoBtn').addEventListener('click', () => {
         const value = parseInt(gotoInput.value);
         if (value >= 1 && value <= filteredQuestions.length) {
@@ -1354,6 +2078,17 @@ Edufacilita Team`;
     // Search on input (real-time filtering)
     document.getElementById('search-input').addEventListener('input', filterQuestions);
 
+<<<<<<< HEAD
+=======
+    // Handle download form submission
+    document.getElementById('downloadForm').addEventListener('submit', function(e) {
+        // Refresh the page after 5 seconds
+        setTimeout(function() {
+            window.location.reload();
+        }, 5000);
+    });
+
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
     // Initialize
     updateDisplay();
     updateSelectionUI();

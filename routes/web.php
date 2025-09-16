@@ -62,6 +62,7 @@ Route::middleware([AuthMiddleware::class])->group(function () {
 
         Route::get('/questions', [UserQuestionsController::class, 'index'])->name('questions.index');
         Route::post('/questions/download', [UserQuestionsController::class, 'download'])->name('questions.download');
+<<<<<<< HEAD
         Route::post('/questions/download-latex-zip', [UserQuestionsController::class, 'downloadLatexZip'])->name('questions.download-latex-zip');
         Route::post('/questions/send-email', [UserQuestionsController::class, 'sendEmail'])->name('questions.send-email');
         
@@ -94,6 +95,8 @@ Route::middleware([AuthMiddleware::class])->group(function () {
             }
             return response()->json($debug);
         });
+=======
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 
 
         // Credit Routes
@@ -120,7 +123,14 @@ Route::prefix('Dashboard')->name('admin.')->middleware([AuthMiddleware::class, A
 
     // Questions Management Routes
     Route::get('/questions/{question}/download-document', [QuestionsController::class, 'downloadDocument'])->name('questions.download-document');
+<<<<<<< HEAD
     Route::post('/upload/image', [QuestionsController::class, 'uploadImage'])->name('upload.image');
+=======
+<<<<<<< HEAD
+    Route::post('/upload/image', [QuestionsController::class, 'uploadImage'])->name('upload.image');
+=======
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
     Route::resource('questions', QuestionsController::class);
 
 

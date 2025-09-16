@@ -1,11 +1,16 @@
 @extends('layouts.admin')
 
 @push('head')
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <!-- CKEditor 5 -->
 <script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/classic/ckeditor.js"></script>
 <!-- MathJax so authors see formulas while editing (optional preview) -->
+<<<<<<< HEAD
 <script type="text/javascr                            fetch('/Dashboard/upload/image', {
                                 method: 'POST',
                                 body: formData
@@ -29,6 +34,9 @@
                                 console.error('Image upload error:', error);
                                 reject('Upload failed: ' + error.message);
                             });script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+=======
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 <!-- Simple CSS to make images smaller -->
 <style>
     .ck-content img {
@@ -36,6 +44,12 @@
         height: auto !important;
     }
 </style>
+<<<<<<< HEAD
+=======
+=======
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 @endpush
 
 @section('content')
@@ -99,7 +113,11 @@
                         </div>
                         <div>
                             <h3 class="text-xl font-bold text-gray-800">Question Content</h3>
+<<<<<<< HEAD
                             <p class="text-gray-600 text-sm">Enter the question text and correct answer</p>
+=======
+                            <p class="text-gray-600 text-sm">Enter the question text and answer options</p>
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                         </div>
                     </div>
 
@@ -113,8 +131,201 @@
                                 Question Text *
                             </label>
                             <textarea name="question" id="question" rows="5"
+<<<<<<< HEAD
                                       class="rich-text w-full border-2 border-gray-200 rounded-xl p-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200 resize-y hover:border-gray-300 bg-white shadow-sm"
                                       placeholder="Enter the complete question text with proper formatting..." data-required="true">{{ old('question') }}</textarea>
+=======
+<<<<<<< HEAD
+                                      class="rich-text w-full border-2 border-gray-200 rounded-xl p-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200 resize-y hover:border-gray-300 bg-white shadow-sm"
+                                      placeholder="Enter the complete question text with proper formatting..." data-required="true">{{ old('question') }}</textarea>
+=======
+                                      class="w-full border-2 border-gray-200 rounded-xl p-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200 resize-y hover:border-gray-300 bg-white shadow-sm"
+                                      placeholder="Enter the complete question text with proper formatting..." required>{{ old('question') }}</textarea>
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
+                        </div>
+
+                        <!-- Options -->
+                        <div class="space-y-3">
+                            <label for="options" class="flex items-center text-sm font-bold text-gray-800 uppercase tracking-wide">
+                                <div class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-list-ul text-white text-sm"></i>
+                                </div>
+                                Answer Options *
+                            </label>
+                            <textarea name="options" id="options" rows="5"
+<<<<<<< HEAD
+                                      class="rich-text w-full border-2 border-gray-200 rounded-xl p-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200 resize-y hover:border-gray-300 bg-white shadow-sm"
+                                      placeholder="Enter all possible answer options (A, B, C, D)..." data-required="true">{{ old('options') }}</textarea>
+=======
+                                      class="w-full border-2 border-gray-200 rounded-xl p-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200 resize-y hover:border-gray-300 bg-white shadow-sm"
+                                      placeholder="Enter all possible answer options (A, B, C, D)..." required>{{ old('options') }}</textarea>
+
+                            <!-- Show Image Support Description Radio Button -->
+                            <div class="mt-6 p-6 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border border-indigo-200">
+                                <label class="flex items-center text-sm font-bold text-gray-800 uppercase tracking-wide mb-4">
+                                    <div class="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center mr-3">
+                                        <i class="fas fa-toggle-on text-white text-sm"></i>
+                                    </div>
+                                    Show Image Support Description
+                                </label>
+                                <div class="flex items-center space-x-8">
+                                    <label class="flex items-center space-x-3 cursor-pointer group">
+                                        <input type="radio" name="show_image_support" value="no" 
+                                               class="w-5 h-5 text-red-600 border-2 border-gray-300 focus:ring-red-500 focus:ring-2" 
+                                               {{ old('show_image_support', 'no') == 'no' ? 'checked' : '' }}>
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center group-hover:bg-red-600 transition-colors">
+                                                <i class="fas fa-times text-white text-sm"></i>
+                                            </div>
+                                            <span class="text-sm font-medium text-gray-800 group-hover:text-red-600">
+                                                No - Keep sections hidden
+                                            </span>
+                                        </div>
+                                    </label>
+                                    <label class="flex items-center space-x-3 cursor-pointer group">
+                                        <input type="radio" name="show_image_support" value="yes" 
+                                               class="w-5 h-5 text-green-600 border-2 border-gray-300 focus:ring-green-500 focus:ring-2"
+                                               {{ old('show_image_support') == 'yes' ? 'checked' : '' }}>
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center group-hover:bg-green-600 transition-colors">
+                                                <i class="fas fa-check text-white text-sm"></i>
+                                            </div>
+                                            <span class="text-sm font-medium text-gray-800 group-hover:text-green-600">
+                                                Yes - Show support options
+                                            </span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="flex items-center space-x-2 text-sm text-indigo-700 bg-indigo-100 p-3 rounded-lg mt-4">
+                                    <i class="fas fa-info-circle text-indigo-500"></i>
+                                    <span>Choose "Yes" to display image upload and text description options for answer choices.</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Options Images Upload -->
+                            <div class="mt-4" id="imageSupportSections" style="display: none;">
+                                <label class="flex items-center text-sm font-bold text-gray-800 uppercase tracking-wide mb-3">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-3">
+                                        <i class="fas fa-images text-white text-sm"></i>
+                                    </div>
+                                    Option Images (Optional)
+                                </label>
+                                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 border-2 border-dashed border-blue-200 hover:border-blue-300 transition-all duration-300 hover:shadow-md">
+                                        <div class="text-center mb-3">
+                                            <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">A</div>
+                                            <label for="option_image_a" class="block text-sm font-medium text-blue-700">Option A Image</label>
+                                        </div>
+                                        <input type="file" name="option_images[]" id="option_image_a" accept="image/*"
+                                               class="w-full border border-blue-200 rounded-lg p-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-200 file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                                    </div>
+                                    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-4 border-2 border-dashed border-green-200 hover:border-green-300 transition-all duration-300 hover:shadow-md">
+                                        <div class="text-center mb-3">
+                                            <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">B</div>
+                                            <label for="option_image_b" class="block text-sm font-medium text-green-700">Option B Image</label>
+                                        </div>
+                                        <input type="file" name="option_images[]" id="option_image_b" accept="image/*"
+                                               class="w-full border border-green-200 rounded-lg p-2 focus:border-green-500 focus:ring-2 focus:ring-green-100 transition-all duration-200 file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100">
+                                    </div>
+                                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-4 border-2 border-dashed border-yellow-200 hover:border-yellow-300 transition-all duration-300 hover:shadow-md">
+                                        <div class="text-center mb-3">
+                                            <div class="w-8 h-8 bg-yellow-500 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">C</div>
+                                            <label for="option_image_c" class="block text-sm font-medium text-yellow-700">Option C Image</label>
+                                        </div>
+                                        <input type="file" name="option_images[]" id="option_image_c" accept="image/*"
+                                               class="w-full border border-yellow-200 rounded-lg p-2 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-100 transition-all duration-200 file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100">
+                                    </div>
+                                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4 border-2 border-dashed border-purple-200 hover:border-purple-300 transition-all duration-300 hover:shadow-md">
+                                        <div class="text-center mb-3">
+                                            <div class="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">D</div>
+                                            <label for="option_image_d" class="block text-sm font-medium text-purple-700">Option D Image</label>
+                                        </div>
+                                        <input type="file" name="option_images[]" id="option_image_d" accept="image/*"
+                                               class="w-full border border-purple-200 rounded-lg p-2 focus:border-purple-500 focus:ring-2 focus:ring-purple-100 transition-all duration-200 file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100">
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-2 text-sm text-blue-700 bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg mt-4 border border-blue-200">
+                                    <i class="fas fa-info-circle text-blue-500"></i>
+                                    <span>Upload images for each option if needed. JPG, PNG, GIF up to 2MB each. Each option will be displayed in a beautiful grid layout.</span>
+                                </div>
+
+                                <!-- Text Options Section -->
+                                <div class="space-y-4 mt-6">
+                                    <label class="flex items-center text-sm font-bold text-gray-800 uppercase tracking-wide">
+                                        <div class="w-8 h-8 bg-gray-600 rounded-lg flex items-center justify-center mr-3">
+                                            <i class="fas fa-align-left text-white text-sm"></i>
+                                        </div>
+                                        Option Text Descriptions (with LaTeX support)
+                                    </label>
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 border-2 border-blue-200 hover:border-blue-300 transition-all duration-300">
+                                        <div class="flex items-center mb-3">
+                                            <div class="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center mr-2 text-xs font-bold">A</div>
+                                            <label for="text_option_a" class="text-sm font-medium text-blue-700">Option A Text</label>
+                                        </div>
+                                        <textarea name="text_options[]" id="text_option_a" rows="3"
+                                                  class="w-full border border-blue-200 rounded-lg p-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-200 resize-none font-mono text-sm"
+                                                  placeholder="Enter text description for option A (LaTeX supported: $x^2$ or $$\frac{a}{b}$$)">{{ old('text_options.0') }}</textarea>
+                                    </div>
+                                    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-4 border-2 border-green-200 hover:border-green-300 transition-all duration-300">
+                                        <div class="flex items-center mb-3">
+                                            <div class="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center mr-2 text-xs font-bold">B</div>
+                                            <label for="text_option_b" class="text-sm font-medium text-green-700">Option B Text</label>
+                                        </div>
+                                        <textarea name="text_options[]" id="text_option_b" rows="3"
+                                                  class="w-full border border-green-200 rounded-lg p-3 focus:border-green-500 focus:ring-2 focus:ring-green-100 transition-all duration-200 resize-none font-mono text-sm"
+                                                  placeholder="Enter text description for option B (LaTeX supported: $x^2$ or $$\frac{a}{b}$$)">{{ old('text_options.1') }}</textarea>
+                                    </div>
+                                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-4 border-2 border-yellow-200 hover:border-yellow-300 transition-all duration-300">
+                                        <div class="flex items-center mb-3">
+                                            <div class="w-6 h-6 bg-yellow-500 text-white rounded-full flex items-center justify-center mr-2 text-xs font-bold">C</div>
+                                            <label for="text_option_c" class="text-sm font-medium text-yellow-700">Option C Text</label>
+                                        </div>
+                                        <textarea name="text_options[]" id="text_option_c" rows="3"
+                                                  class="w-full border border-yellow-200 rounded-lg p-3 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-100 transition-all duration-200 resize-none font-mono text-sm"
+                                                  placeholder="Enter text description for option C (LaTeX supported: $x^2$ or $$\frac{a}{b}$$)">{{ old('text_options.2') }}</textarea>
+                                    </div>
+                                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4 border-2 border-purple-200 hover:border-purple-300 transition-all duration-300">
+                                        <div class="flex items-center mb-3">
+                                            <div class="w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center mr-2 text-xs font-bold">D</div>
+                                            <label for="text_option_d" class="text-sm font-medium text-purple-700">Option D Text</label>
+                                        </div>
+                                        <textarea name="text_options[]" id="text_option_d" rows="3"
+                                                  class="w-full border border-purple-200 rounded-lg p-3 focus:border-purple-500 focus:ring-2 focus:ring-purple-100 transition-all duration-200 resize-none font-mono text-sm"
+                                                  placeholder="Enter text description for option D (LaTeX supported: $x^2$ or $$\frac{a}{b}$$)">{{ old('text_options.3') }}</textarea>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-2 text-sm text-gray-700 bg-gradient-to-r from-gray-50 to-slate-50 p-4 rounded-lg border border-gray-200">
+                                    <i class="fas fa-superscript text-gray-500"></i>
+                                    <span>Add text descriptions for options. Use LaTeX syntax for mathematical expressions: inline $x^2 + y^2$ or display $$\frac{a+b}{c}$$</span>
+                                </div>
+
+                                <!-- Answer Image Upload -->
+                                <div class="mt-6">
+                                    <label for="answer_image" class="flex items-center text-sm font-bold text-gray-800 uppercase tracking-wide mb-3">
+                                        <div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center mr-3">
+                                            <i class="fas fa-image text-white text-sm"></i>
+                                        </div>
+                                        Answer Image (Optional)
+                                    </label>
+                                    <div class="bg-emerald-50 rounded-xl p-4 border-2 border-dashed border-emerald-200 hover:border-emerald-300 transition-all duration-300">
+                                        <input type="file" name="answer_image" id="answer_image" accept="image/*"
+                                               class="w-full border border-gray-200 rounded-lg p-3 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition-all duration-200 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100">
+                                        <div class="flex items-center space-x-2 text-sm text-emerald-700 bg-emerald-100 p-3 rounded-lg mt-3">
+                                            <i class="fas fa-info-circle text-emerald-500"></i>
+                                            <span>Upload an image to support the correct answer explanation. JPG, PNG, GIF up to 2MB</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div> <!-- End of imageSupportSections wrapper -->
+                            
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
+                            <div class="flex items-center space-x-2 text-sm text-gray-600 bg-blue-50 p-3 rounded-lg">
+                                <i class="fas fa-lightbulb text-blue-500"></i>
+                                <span>Provide clear and distinct answer options for multiple choice questions</span>
+                            </div>
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                         </div>
 
                         <!-- Answer -->
@@ -126,8 +337,19 @@
                                 Correct Answer *
                             </label>
                             <textarea name="answer" id="answer" rows="4"
+<<<<<<< HEAD
                                       class="rich-text w-full border-2 border-gray-200 rounded-xl p-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200 resize-y hover:border-gray-300 bg-white shadow-sm"
                                       placeholder="Enter the complete correct answer with explanation..." data-required="true">{{ old('answer') }}</textarea>
+=======
+<<<<<<< HEAD
+                                      class="rich-text w-full border-2 border-gray-200 rounded-xl p-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200 resize-y hover:border-gray-300 bg-white shadow-sm"
+                                      placeholder="Enter the complete correct answer with explanation..." data-required="true">{{ old('answer') }}</textarea>
+=======
+                                      class="w-full border-2 border-gray-200 rounded-xl p-4 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200 resize-y hover:border-gray-300 bg-white shadow-sm"
+                                      placeholder="Enter the complete correct answer with explanation..." required>{{ old('answer') }}</textarea>
+                            
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                             <div class="flex items-center space-x-2 text-sm text-emerald-700 bg-emerald-50 p-3 rounded-lg">
                                 <i class="fas fa-shield-check text-emerald-500"></i>
                                 <span>Provide the definitive correct answer for this question</span>
@@ -136,6 +358,7 @@
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <!-- LaTeX Content Section -->
                 <div class="group bg-gradient-to-br from-orange-50 to-red-100 rounded-2xl p-8 border border-orange-200 hover:border-orange-300 transition-all duration-300 hover:shadow-lg">
                     <div class="flex items-center space-x-3 mb-8">
@@ -206,6 +429,8 @@
                     </div>
                 </div>
 
+=======
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                 <!-- Question Properties Section -->
                 <div class="group bg-gradient-to-br from-purple-50 to-pink-100 rounded-2xl p-8 border border-purple-200 hover:border-purple-300 transition-all duration-300 hover:shadow-lg">
                     <div class="flex items-center space-x-3 mb-8">
@@ -631,6 +856,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
     // File Upload Adapter Plugin (saves files to server instead of base64)
     function FileUploadAdapterPlugin(editor){
         editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
@@ -711,6 +940,40 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+<<<<<<< HEAD
+=======
+=======
+    // Show Image Support Description Toggle
+    const imageSupportRadios = document.querySelectorAll('input[name="show_image_support"]');
+    const imageSupportSections = document.getElementById('imageSupportSections');
+
+    function toggleImageSupportSections() {
+        const selectedValue = document.querySelector('input[name="show_image_support"]:checked')?.value;
+        
+        if (selectedValue === 'yes') {
+            imageSupportSections.style.display = 'block';
+            // Enable all form elements within the sections
+            imageSupportSections.querySelectorAll('input, textarea').forEach(element => {
+                element.disabled = false;
+            });
+        } else {
+            imageSupportSections.style.display = 'none';
+            // Disable all form elements within the sections to prevent submission
+            imageSupportSections.querySelectorAll('input, textarea').forEach(element => {
+                element.disabled = true;
+            });
+        }
+    }
+
+    // Add event listeners to radio buttons
+    imageSupportRadios.forEach(radio => {
+        radio.addEventListener('change', toggleImageSupportSections);
+    });
+
+    // Initialize the correct section visibility on page load
+    toggleImageSupportSections();
+>>>>>>> a0c595f5a6fd462401a4dc2125a6b45408cc7c90
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 });
 </script>
 @endsection

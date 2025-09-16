@@ -19,6 +19,7 @@
     @stack('head')
 
 </head>
+<<<<<<< HEAD
 <body class="bg-gray-50 min-h-screen font-sans" x-data="{ mobileMenuOpen: false, sidebarCollapsed: false }">
     <div class="flex h-screen bg-gray-100">
 
@@ -39,11 +40,24 @@
                     </button>
 
                     <div class="flex flex-col items-center space-y-4" x-show="!sidebarCollapsed" x-transition>
+=======
+<body class="bg-gray-50 min-h-screen font-sans" x-data="{ mobileMenuOpen: false }">
+    <div class="flex h-screen bg-gray-100">
+
+
+        <!-- Enhanced Desktop Sidebar -->
+        <div class="hidden md:flex md:w-80 md:flex-col md:fixed md:inset-y-0">
+            <div class="flex flex-col flex-grow bg-white shadow-2xl border-r border-gray-200 overflow-y-auto">
+                <!-- Logo & Header -->
+                <div class="relative px-8 py-10 text-center border-b border-gray-200 bg-gray-50">
+                    <div class="flex flex-col items-center space-y-4">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                         <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg hover:scale-105 transition-transform duration-300">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
                             </svg>
                         </div>
+<<<<<<< HEAD
                     </div>
 
                     <!-- Collapsed Logo -->
@@ -55,6 +69,10 @@
                         </div>
                     </div>
 
+=======
+
+                    </div>
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                 </div>
 
                 <!-- Navigation Menu -->
@@ -62,17 +80,23 @@
                     <div class="space-y-3 flex-1">
                         <!-- Dashboard -->
                         <a href="{{route('user.dashboard') }}"
+<<<<<<< HEAD
                            class="group relative flex items-center py-4 text-gray-600 hover:text-gray-900 rounded-xl transition-all duration-300 hover:bg-blue-50 hover:shadow-md {{ request()->routeIs('user.dashboard') ? 'bg-blue-100 text-blue-900 shadow-md border border-blue-200' : '' }}"
                            :class="sidebarCollapsed ? 'px-2 justify-center' : 'px-4'"
                            x-data="{ showTooltip: false }"
                            @mouseenter="showTooltip = sidebarCollapsed"
                            @mouseleave="showTooltip = false">
                             <div class="flex items-center w-full" :class="sidebarCollapsed ? 'justify-center' : 'space-x-4'">
+=======
+                           class="group relative flex items-center px-4 py-4 text-gray-600 hover:text-gray-900 rounded-xl transition-all duration-300 hover:bg-blue-50 hover:shadow-md {{ request()->routeIs('user.dashboard') ? 'bg-blue-100 text-blue-900 shadow-md border border-blue-200' : '' }}">
+                            <div class="flex items-center space-x-4 w-full">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                                 <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-105">
                                     <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                                     </svg>
                                 </div>
+<<<<<<< HEAD
                                 <span class="font-semibold text-base tracking-wide" x-show="!sidebarCollapsed" x-transition>Dashboard</span>
                             </div>
                             <!-- Tooltip for collapsed state -->
@@ -87,6 +111,11 @@
                                 Dashboard
                             </div>
                             <div class="absolute right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" x-show="!sidebarCollapsed">
+=======
+                                <span class="font-semibold text-base tracking-wide">Dashboard</span>
+                            </div>
+                            <div class="absolute right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                                 <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                 </svg>
@@ -95,17 +124,23 @@
 
                         <!-- Question Management -->
                         <a href="{{ route('user.questions.index') }}"
+<<<<<<< HEAD
                            class="group relative flex items-center py-4 text-gray-600 hover:text-gray-900 rounded-xl transition-all duration-300 hover:bg-amber-50 hover:shadow-md {{ request()->routeIs('user.questions.*') ? 'bg-amber-100 text-amber-900 shadow-md border border-amber-200' : '' }}"
                            :class="sidebarCollapsed ? 'px-2 justify-center' : 'px-4'"
                            x-data="{ showTooltip: false }"
                            @mouseenter="showTooltip = sidebarCollapsed"
                            @mouseleave="showTooltip = false">
                             <div class="flex items-center w-full" :class="sidebarCollapsed ? 'justify-center' : 'space-x-4'">
+=======
+                           class="group relative flex items-center px-4 py-4 text-gray-600 hover:text-gray-900 rounded-xl transition-all duration-300 hover:bg-amber-50 hover:shadow-md {{ request()->routeIs('user.questions.*') ? 'bg-amber-100 text-amber-900 shadow-md border border-amber-200' : '' }}">
+                            <div class="flex items-center space-x-4 w-full">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                                 <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-105">
                                     <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
                                 </div>
+<<<<<<< HEAD
                                 <span class="font-semibold text-base tracking-wide" x-show="!sidebarCollapsed" x-transition>Browse Question</span>
                             </div>
                             <!-- Tooltip for collapsed state -->
@@ -120,6 +155,11 @@
                                 Browse Question
                             </div>
                             <div class="absolute right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" x-show="!sidebarCollapsed">
+=======
+                                <span class="font-semibold text-base tracking-wide">Browse Question</span>
+                            </div>
+                            <div class="absolute right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                                 <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                 </svg>
@@ -128,17 +168,23 @@
 
                         <!-- Credit History -->
                         <a href="{{ route('user.credits.index') }}"
+<<<<<<< HEAD
                            class="group relative flex items-center py-4 text-gray-600 hover:text-gray-900 rounded-xl transition-all duration-300 hover:bg-indigo-50 hover:shadow-md {{ request()->routeIs('user.credits.*') ? 'bg-indigo-100 text-indigo-900 shadow-md border border-indigo-200' : '' }}"
                            :class="sidebarCollapsed ? 'px-2 justify-center' : 'px-4'"
                            x-data="{ showTooltip: false }"
                            @mouseenter="showTooltip = sidebarCollapsed"
                            @mouseleave="showTooltip = false">
                             <div class="flex items-center w-full" :class="sidebarCollapsed ? 'justify-center' : 'space-x-4'">
+=======
+                           class="group relative flex items-center px-4 py-4 text-gray-600 hover:text-gray-900 rounded-xl transition-all duration-300 hover:bg-indigo-50 hover:shadow-md {{ request()->routeIs('user.credits.*') ? 'bg-indigo-100 text-indigo-900 shadow-md border border-indigo-200' : '' }}">
+                            <div class="flex items-center space-x-4 w-full">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                                 <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-105">
                                     <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
                                     </svg>
                                 </div>
+<<<<<<< HEAD
                                 <span class="font-semibold text-base tracking-wide" x-show="!sidebarCollapsed" x-transition>Credit History</span>
                             </div>
                             <!-- Tooltip for collapsed state -->
@@ -153,6 +199,11 @@
                                 Credit History
                             </div>
                             <div class="absolute right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" x-show="!sidebarCollapsed">
+=======
+                                <span class="font-semibold text-base tracking-wide">Credit History</span>
+                            </div>
+                            <div class="absolute right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                                 <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                 </svg>
@@ -167,17 +218,23 @@
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button type="submit"
+<<<<<<< HEAD
                                     class="group relative flex items-center w-full py-4 text-gray-600 hover:text-red-600 rounded-xl transition-all duration-300 hover:bg-red-50 hover:shadow-md"
                                     :class="sidebarCollapsed ? 'px-2 justify-center' : 'px-4'"
                                     x-data="{ showTooltip: false }"
                                     @mouseenter="showTooltip = sidebarCollapsed"
                                     @mouseleave="showTooltip = false">
                                 <div class="flex items-center w-full" :class="sidebarCollapsed ? 'justify-center' : 'space-x-4'">
+=======
+                                    class="group relative flex items-center w-full px-4 py-4 text-gray-600 hover:text-red-600 rounded-xl transition-all duration-300 hover:bg-red-50 hover:shadow-md">
+                                <div class="flex items-center space-x-4 w-full">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                                     <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-red-500 to-rose-600 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-105">
                                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
                                         </svg>
                                     </div>
+<<<<<<< HEAD
                                     <span class="font-semibold text-base tracking-wide" x-show="!sidebarCollapsed" x-transition>Sign Out</span>
                                 </div>
                                 <!-- Tooltip for collapsed state -->
@@ -190,6 +247,9 @@
                                      x-transition:leave-end="opacity-0 translate-x-2"
                                      class="absolute left-full ml-2 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg shadow-lg z-50 whitespace-nowrap">
                                     Sign Out
+=======
+                                    <span class="font-semibold text-base tracking-wide">Sign Out</span>
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                                 </div>
                             </button>
                         </form>
@@ -199,7 +259,11 @@
         </div>
 
         <!-- Main Content -->
+<<<<<<< HEAD
         <div class="flex flex-col flex-1">
+=======
+        <div class="md:pl-80 flex flex-col flex-1">
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
             <!-- Header -->
             <div class="sticky top-0 z-10 bg-white shadow-sm border-b border-gray-200">
                 <div class="px-4 sm:px-6 lg:px-8">
@@ -247,7 +311,11 @@
                             </h1>
                         </div>
 
+<<<<<<< HEAD
                         <!-- Right side - User menu -->
+=======
+                        <!-- Right side - User menu and notifications -->
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                         <div class="flex items-center space-x-3">
                             <!-- Credits Display -->
                             <div class="hidden md:flex items-center space-x-3 bg-gradient-to-r from-blue-50 to-purple-50 px-4 py-2 rounded-lg border border-blue-100 hover:shadow-sm transition-shadow">
@@ -268,6 +336,109 @@
                                 </a>
                             </div>
 
+<<<<<<< HEAD
+=======
+                            <!-- Notifications -->
+                            <div class="relative" x-data="{ notificationsOpen: false }">
+                                <button class="p-2 text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg transition-colors relative focus:outline-none"
+                                        @click="notificationsOpen = !notificationsOpen">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                                    </svg>
+                                    <!-- Notification Badge -->
+                                    <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">3</span>
+                                </button>
+
+                                <!-- Notifications Dropdown -->
+                                <div x-show="notificationsOpen"
+                                     x-transition:enter="transition ease-out duration-200"
+                                     x-transition:enter-start="opacity-0 scale-95"
+                                     x-transition:enter-end="opacity-100 scale-100"
+                                     x-transition:leave="transition ease-in duration-75"
+                                     x-transition:leave-start="opacity-100 scale-100"
+                                     x-transition:leave-end="opacity-0 scale-95"
+                                     @click.away="notificationsOpen = false"
+                                     class="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg py-1 border border-gray-200 z-50"
+                                     style="display: none;">
+                                    <div class="px-4 py-3 border-b border-gray-200">
+                                        <div class="flex items-center justify-between">
+                                            <h3 class="text-sm font-semibold text-gray-900">Notifications</h3>
+                                            <span class="inline-flex items-center px-2 py-1 text-xs font-medium text-blue-800 bg-blue-100 rounded-full">
+                                                3 New
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="max-h-96 overflow-y-auto">
+                                        <!-- Notification Item -->
+                                        <div class="px-4 py-3 hover:bg-gray-50 cursor-pointer border-l-4 border-blue-500 bg-blue-50">
+                                            <div class="flex items-start">
+                                                <div class="flex-shrink-0">
+                                                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <div class="ml-3 flex-1">
+                                                    <p class="text-sm font-medium text-gray-900">Credits Added</p>
+                                                    <p class="text-sm text-gray-600">50 credits have been added to your account</p>
+                                                    <p class="text-xs text-gray-500 mt-1">2 minutes ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Notification Item -->
+                                        <div class="px-4 py-3 hover:bg-gray-50 cursor-pointer border-l-4 border-green-500 bg-green-50">
+                                            <div class="flex items-start">
+                                                <div class="flex-shrink-0">
+                                                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <div class="ml-3 flex-1">
+                                                    <p class="text-sm font-medium text-gray-900">Question Approved</p>
+                                                    <p class="text-sm text-gray-600">Your math question has been approved and published</p>
+                                                    <p class="text-xs text-gray-500 mt-1">1 hour ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Notification Item -->
+                                        <div class="px-4 py-3 hover:bg-gray-50 cursor-pointer border-l-4 border-orange-500 bg-orange-50">
+                                            <div class="flex items-start">
+                                                <div class="flex-shrink-0">
+                                                    <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+                                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <div class="ml-3 flex-1">
+                                                    <p class="text-sm font-medium text-gray-900">Low Credit Balance</p>
+                                                    <p class="text-sm text-gray-600">You have only 5 credits remaining</p>
+                                                    <p class="text-xs text-gray-500 mt-1">3 hours ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="border-t border-gray-200 px-4 py-3">
+                                        <div class="flex items-center justify-between">
+                                            <button class="text-sm text-blue-600 hover:text-blue-800 font-medium">
+                                                Mark all as read
+                                            </button>
+                                            <a href="#" class="text-sm text-gray-500 hover:text-gray-700">
+                                                View all notifications
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
                             <!-- User Profile Dropdown -->
                             <div class="relative" x-data="{ userMenuOpen: false }">
                                 <button type="button"
@@ -460,7 +631,11 @@
 
                     <!-- Dashboard Content -->
                     @yield('content')
+<<<<<<< HEAD
                 
+=======
+
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
             </div>
         </div>
     </div>

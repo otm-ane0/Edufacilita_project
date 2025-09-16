@@ -4,24 +4,36 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\CreditHistory;
+<<<<<<< HEAD
 use App\Models\DownloadSession;
+=======
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 use App\Models\Question;
 use App\Models\Subject;
 use App\Models\Topic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\IOFactory;
 use PhpOffice\PhpWord\Shared\Converter;
+=======
+use Illuminate\Support\Facades\Storage;
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 
 class UserQuestionsController extends Controller
 {
     public function index()
     {
+<<<<<<< HEAD
         // Get questions with relationships - load topic and subject relationships
         $questions = Question::with(['topic.subject'])->get();
+=======
+        // Get questions - relationships are already defined in models
+        $questions = Question::all();
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
         $subjects = Subject::all();
         
         return view('user.questions.index', [
@@ -36,7 +48,10 @@ class UserQuestionsController extends Controller
     public function download(Request $request)
     {
         $selectedQuestions = $request->input('selected_questions', []);
+<<<<<<< HEAD
         $format = $request->input('format', 'word'); // Default to Word format
+=======
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 
         if (is_string($selectedQuestions)) {
             $selectedQuestions = json_decode($selectedQuestions, true);
@@ -47,6 +62,7 @@ class UserQuestionsController extends Controller
             return redirect()->back()->with('error', 'No questions selected for download.');
         }
 
+<<<<<<< HEAD
         // Sort question IDs to ensure consistent hash generation
         sort($selectedQuestions);
         
@@ -57,6 +73,9 @@ class UserQuestionsController extends Controller
         $existingDownload = $this->checkExistingDownload($selectionHash, Auth::id());
         
         if (!$existingDownload && Auth::user()->credit < count($selectedQuestions)) {
+=======
+        if (Auth::user()->credit < count($selectedQuestions)) {
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
             return redirect()->back()->with('error', 'Insufficient credits for download.');
         }
 
@@ -66,6 +85,7 @@ class UserQuestionsController extends Controller
             if (!$question) {
                 return redirect()->back()->with('error', 'Question not found.');
             }
+<<<<<<< HEAD
             
             if ($format === 'latex') {
                 return $this->downloadSingleLatex($question, $existingDownload, $selectionHash);
@@ -217,12 +237,23 @@ class UserQuestionsController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Error creating LaTeX ZIP package: ' . $e->getMessage());
         }
+=======
+            return $this->downloadSingleDocument($question);
+        }
+
+        // Handle multiple questions download
+        return $this->downloadMultipleDocuments($selectedQuestions);
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
     }
 
     /**
      * Download the question and answer documents as a ZIP file
      */
+<<<<<<< HEAD
     public function downloadSingleDocument(Question $question, $existingDownload = false, $selectionHash = null)
+=======
+    public function downloadSingleDocument(Question $question)
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
     {
         // Check if question document exists
         if (!$question->doc || !Storage::disk('local')->exists($question->doc)) {
@@ -265,6 +296,7 @@ class UserQuestionsController extends Controller
 
             $downloadFileName = 'question_' . $question->id . '_documents.zip';
 
+<<<<<<< HEAD
             // Handle credits only if not already downloaded
             if (!$existingDownload) {
                 if (!$selectionHash) {
@@ -272,6 +304,20 @@ class UserQuestionsController extends Controller
                 }
                 $this->deductCreditsAndRecord([$question->id], $selectionHash, 'word');
             }
+=======
+            // Decrement user's credit
+            $user = Auth::user();
+            $user->credit = $user->credit - 1;
+            $user->save();
+
+            // Add credit history
+            CreditHistory::create([
+                'user_id' => $user->id,
+                'action' => 'Download',
+                'amount' => '- 1',
+                'description' => 'Download question document (ID: ' . $question->id . ')',
+            ]);
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 
             // Return download response and delete temp file after download
             return response()->download($tempZipPath, $downloadFileName)->deleteFileAfterSend(true);
@@ -284,7 +330,11 @@ class UserQuestionsController extends Controller
     /**
      * Download multiple documents with simple Q/R file naming structure
      */
+<<<<<<< HEAD
     public function downloadMultipleDocuments(array $questionIds, $existingDownload = false, $selectionHash = null)
+=======
+    public function downloadMultipleDocuments(array $questionIds)
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
     {
         $questions = Question::whereIn('id', $questionIds)->get();
         if ($questions->isEmpty()) {
@@ -333,6 +383,7 @@ class UserQuestionsController extends Controller
 
             $downloadFileName = 'questions_package_' . count($questions) . '_items.zip';
 
+<<<<<<< HEAD
             // Handle credits only if not already downloaded
             if (!$existingDownload) {
                 if (!$selectionHash) {
@@ -340,6 +391,20 @@ class UserQuestionsController extends Controller
                 }
                 $this->deductCreditsAndRecord($questionIds, $selectionHash, 'word');
             }
+=======
+            // Decrement user's credit
+            $user = Auth::user();
+            $user->credit = $user->credit - count($questionIds);
+            $user->save();
+
+            // Add credit history
+            CreditHistory::create([
+                'user_id' => $user->id,
+                'action' => 'Download',
+                'amount' => '- ' . count($questionIds),
+                'description' => 'Downloaded multiple question package (' . count($questionIds) . ' questions): ' . implode(', ', $questionIds),
+            ]);
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 
             // Return download response and delete temp file after download
             return response()->download($tempMasterZipPath, $downloadFileName)->deleteFileAfterSend(true);
@@ -350,6 +415,7 @@ class UserQuestionsController extends Controller
     }
 
     /**
+<<<<<<< HEAD
      * Download single question as LaTeX-based Word document with organized structure
      */
     public function downloadSingleLatex(Question $question, $existingDownload = false, $selectionHash = null)
@@ -838,6 +904,8 @@ class UserQuestionsController extends Controller
     }
 
     /**
+=======
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
      * Get topics by subject ID for AJAX requests
      */
     public function getTopics($subjectId)
@@ -845,6 +913,7 @@ class UserQuestionsController extends Controller
         $topics = Topic::where('subject_id', $subjectId)->select('id', 'name')->get();
         return response()->json($topics);
     }
+<<<<<<< HEAD
 
     /**
      * Check if credits have already been deducted for this selection
@@ -1467,4 +1536,6 @@ class UserQuestionsController extends Controller
             return null;
         }
     }
+=======
+>>>>>>> fdaa374b8c473690086850ea4e7af998f74c278c
 }
